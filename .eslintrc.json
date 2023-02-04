@@ -10,6 +10,7 @@
     "next/core-web-vitals"
   ],
   "rules": {
+    "react-hooks/exhaustive-deps": "off",
     "linebreak-style": ["error", "unix"],
     "import/order": [
       "error",
