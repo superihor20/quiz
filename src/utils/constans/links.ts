@@ -1,4 +1,4 @@
-export const baseUrl = process.env.WEB_APP_URL;
+export const baseUrl = process.env.NEXT_PUBLIC_WEB_APP_URL;
 
 export const pages = {
   signIn: `${baseUrl}/sign-in`,
