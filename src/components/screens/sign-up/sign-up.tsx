@@ -1,3 +1,4 @@
+import { pages } from '../../../utils/constans/links';
 import { Button } from '../../form/button/button';
 import { FormHelper } from '../../form/form-helper/form-helper';
 import { Form } from '../../form/form/form';
@@ -11,10 +12,7 @@ export const SignUp = () => {
         <Input label="email" type="email" />
         <Input label="password" type="password" />
         <Button>Submit</Button>
-        <FormHelper
-          text="Already have an account?"
-          link={{ text: 'Sign in', url: 'http://localhost:3000/sign-in' }}
-        />
+        <FormHelper text="Already have an account?" link={{ text: 'Sign in', url: pages.signIn }} />
       </Form>
     </div>
   );
