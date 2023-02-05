@@ -1,3 +1,4 @@
+import { Button } from '../../form/button/button';
 import { Form } from '../../form/form/form';
 import { Input } from '../../form/input/input';
 
@@ -8,6 +9,7 @@ export const SignUp = () => {
       <Form>
         <Input label="email" type="email" />
         <Input label="password" type="password" />
+        <Button>Submit</Button>
       </Form>
     </div>
   );
