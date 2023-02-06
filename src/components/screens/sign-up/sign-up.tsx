@@ -1,48 +1,54 @@
-import { useState } from 'react';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { useForm } from 'react-hook-form';
 
-import { authApi } from '../../../api';
+import { authApi, UserCredentials } from '../../../api';
+import { useLocalStorage } from '../../../hooks/useLocalStorage';
 import { pages } from '../../../utils/constans/links';
+import { CustomError } from '../../../utils/helpers/getErrorMessage';
+import { userCredentialsSchema } from '../../../utils/schemas/zod-schemas/user-credentials.schema';
 import { Button } from '../../form/button/button';
 import { FormHelper } from '../../form/form-helper/form-helper';
 import { Form } from '../../form/form/form';
 import { Input } from '../../form/input/input';
 
 export const SignUp = () => {
-  const [formValues, setFormValues] = useState({
-    email: '',
-    password: '',
+  const [, setAccessToken] = useLocalStorage<null | string>('accessToken', null);
+  const {
+    register,
+    handleSubmit: handleSubmitHook,
+    formState: { errors },
+    setError,
+  } = useForm<UserCredentials>({
+    resolver: zodResolver(userCredentialsSchema),
   });
 
-  const handleFormChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setFormValues({
-      ...formValues,
-      [e.target.name]: e.target.value,
-    });
-  };
+  const handleSubmit = async (data: UserCredentials) => {
+    try {
+      const { accessToken } = await authApi.signIn(data);
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-
-    await authApi.signUp(formValues);
+      setAccessToken(accessToken);
+    } catch (e) {
+      setError('email', { message: (e as CustomError).message });
+    }
   };
 
   return (
     <div className="max-w-md mx-auto p-4 bg-slate-50 rounded-lg shadow-md">
       <h1 className="text-2xl font-bold text-center mb-3">Sign up</h1>
-      <Form onSubmit={handleSubmit}>
+      <Form onSubmit={handleSubmitHook((data) => handleSubmit(data))}>
         <Input
           label="email"
           type="email"
-          value={formValues.email}
-          onChange={handleFormChange}
+          register={register}
           name="email"
+          errorMessage={errors.email?.message}
         />
         <Input
           label="password"
           type="password"
-          value={formValues.password}
-          onChange={handleFormChange}
+          register={register}
           name="password"
+          errorMessage={errors.password?.message}
         />
         <Button type="submit">Submit</Button>
         <FormHelper text="Already have an account?" link={{ text: 'Sign in', url: pages.signIn }} />

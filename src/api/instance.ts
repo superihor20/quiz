@@ -7,6 +7,6 @@ export const axios = Axios.create({
 axios.interceptors.response.use(
   (response) => response.data,
   (error: AxiosError) => {
-    throw error;
+    throw error.response?.data;
   },
 );

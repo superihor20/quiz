@@ -3,7 +3,7 @@ import { AxiosInstance } from 'axios';
 import { authEnpoints } from '../../utils/constans/endpoints';
 import { axios } from '../instance';
 
-import { UserCredentials } from './auth.schemas';
+import { AuthResponse, UserCredentials } from './auth.schemas';
 
 class AuthApi {
   #requestInstance: AxiosInstance;
@@ -12,11 +12,11 @@ class AuthApi {
     this.#requestInstance = axiosInstance;
   }
 
-  signIn = async (userCredentials: UserCredentials) => {
+  signIn = async (userCredentials: UserCredentials): Promise<AuthResponse> => {
     return this.#requestInstance.post(authEnpoints.signIn, userCredentials);
   };
 
-  signUp = async (userCredentials: UserCredentials) => {
+  signUp = async (userCredentials: UserCredentials): Promise<AuthResponse> => {
     return this.#requestInstance.post(authEnpoints.signUp, userCredentials);
   };
 }

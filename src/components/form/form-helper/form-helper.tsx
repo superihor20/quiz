@@ -1,5 +1,3 @@
-import { ComponentWithChildren } from '../../../types/component-with-children';
-
 type FormHelper = {
   text: string;
   link?: {
@@ -8,7 +6,7 @@ type FormHelper = {
   };
 };
 
-export const FormHelper: ComponentWithChildren<FormHelper> = ({ link, text }) => {
+export const FormHelper: React.FC<FormHelper> = ({ link, text }) => {
   return (
     <>
       <div className="border-slate-100 border-t-2 w-full h-1" />

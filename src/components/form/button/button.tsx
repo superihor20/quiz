@@ -1,10 +1,10 @@
 import { ComponentWithChildren } from '../../../types/component-with-children';
 
-type ButtonProps = {
+type ButtonProps = ComponentWithChildren<{
   type?: 'button' | 'submit' | 'reset';
-};
+}>;
 
-export const Button: ComponentWithChildren<ButtonProps> = ({ children, type = 'button' }) => {
+export const Button: ButtonProps = ({ children, type = 'button' }) => {
   return (
     <button
       type={type}
