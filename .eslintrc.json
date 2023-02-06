@@ -20,6 +20,7 @@
         "alphabetize": { "order": "asc", "caseInsensitive": true }
       }
     ],
-    "prettier/prettier": ["error", {}, { "usePrettierrc": true }]
+    "prettier/prettier": ["error", {}, { "usePrettierrc": true }],
+    "import/no-named-as-default": "off"
   }
 }
