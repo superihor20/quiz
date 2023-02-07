@@ -27,11 +27,7 @@ export const AuthLayout: ComponentWithChildren = ({ children }) => {
     }
   }, [accessToken]);
 
-  if (isServer) {
-    return null;
-  }
-
-  if (checkRouteAvailability(`${baseUrl}${router.pathname}`, accessToken)) {
+  if (isServer || checkRouteAvailability(`${baseUrl}${router.pathname}`, accessToken)) {
     return null;
   }
 
