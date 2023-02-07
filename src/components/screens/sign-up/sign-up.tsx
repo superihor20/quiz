@@ -6,7 +6,7 @@ import { useLocalStorage } from '../../../hooks/useLocalStorage';
 import { pages } from '../../../utils/constans/links';
 import { localStorageKeys } from '../../../utils/enums/local-storage-keys';
 import { CustomError } from '../../../utils/helpers/getErrorMessage';
-import { userCredentialsSchema } from '../../../utils/schemas/zod-schemas/user-credentials.schema';
+import { userCredentialsSchema } from '../../../utils/zod-schemas/user-credentials.schema';
 import { Button } from '../../form/button/button';
 import { FormHelper } from '../../form/form-helper/form-helper';
 import { Form } from '../../form/form/form';
