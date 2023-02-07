@@ -6,10 +6,10 @@ import { ComponentWithChildren } from '../../../types/component-with-children';
 import { baseUrl, pages } from '../../../utils/constans/links';
 import { localStorageKeys } from '../../../utils/enums/local-storage-keys';
 
-const noRedirects = new Set<string>([pages.signIn, pages.signUp]);
+const publicRoutes = new Set<string>([pages.signIn, pages.signUp]);
 
-const checkForRedirect = (url: string, accessToken?: string | null | undefined) => {
-  return !accessToken && !noRedirects.has(url);
+const checkRouteAvailability = (url: string, accessToken: string | null | undefined) => {
+  return !accessToken && !publicRoutes.has(url);
 };
 
 export const AuthLayout: ComponentWithChildren = ({ children }) => {
@@ -18,20 +18,20 @@ export const AuthLayout: ComponentWithChildren = ({ children }) => {
   const [accessToken] = useLocalStorage<string | null | undefined>(localStorageKeys.ACCESS_TOKEN);
 
   useEffect(() => {
-    if (checkForRedirect(`${baseUrl}${router.pathname}`, accessToken)) {
+    setIsServer(false);
+  }, []);
+
+  useEffect(() => {
+    if (checkRouteAvailability(`${baseUrl}${router.pathname}`, accessToken)) {
       router.push('/sign-in');
     }
   }, [accessToken]);
-
-  useEffect(() => {
-    setIsServer(false);
-  }, []);
 
   if (isServer) {
     return null;
   }
 
-  if (checkForRedirect(`${baseUrl}${router.pathname}`, accessToken)) {
+  if (checkRouteAvailability(`${baseUrl}${router.pathname}`, accessToken)) {
     return null;
   }
 
