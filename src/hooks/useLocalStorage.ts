@@ -1,6 +1,12 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
-export const useLocalStorage = <S>(key: string, initialValue: S): [S, (value: S) => void] => {
+import { localStorageKeys } from '../utils/enums/local-storage-keys';
+
+export const useLocalStorage = <S>(
+  key: localStorageKeys,
+  initialValue?: S,
+): [S, (value: S) => void, boolean] => {
+  const [isLoading, setIsLoading] = useState(true);
   const [storedValue, setStoredValue] = useState<S>(() => {
     if (typeof window === 'undefined') {
       return initialValue;
@@ -17,5 +23,9 @@ export const useLocalStorage = <S>(key: string, initialValue: S): [S, (value: S)
     window.localStorage.setItem(key, JSON.stringify(value));
   };
 
-  return [storedValue, setValue];
+  useEffect(() => {
+    setIsLoading(false);
+  }, []);
+
+  return [storedValue, setValue, isLoading];
 };

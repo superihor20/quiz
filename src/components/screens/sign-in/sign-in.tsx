@@ -4,6 +4,7 @@ import { useForm } from 'react-hook-form';
 import { authApi, UserCredentials } from '../../../api';
 import { useLocalStorage } from '../../../hooks/useLocalStorage';
 import { pages } from '../../../utils/constans/links';
+import { localStorageKeys } from '../../../utils/enums/local-storage-keys';
 import { CustomError } from '../../../utils/helpers/getErrorMessage';
 import { userCredentialsSchema } from '../../../utils/schemas/zod-schemas/user-credentials.schema';
 import { Button } from '../../form/button/button';
@@ -12,7 +13,7 @@ import { Form } from '../../form/form/form';
 import { Input } from '../../form/input/input';
 
 export const SignIn = () => {
-  const [, setAccessToken] = useLocalStorage<null | string>('accessToken', null);
+  const [, setAccessToken] = useLocalStorage<null | string>(localStorageKeys.ACCESS_TOKEN, null);
   const {
     register,
     handleSubmit: handleSubmitHook,

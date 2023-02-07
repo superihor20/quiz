@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 type FormHelper = {
   text: string;
   link?: {
@@ -13,9 +15,9 @@ export const FormHelper: React.FC<FormHelper> = ({ link, text }) => {
       <p className="text-center">
         <span className="text-sm text-slate-400">{text}</span>{' '}
         {link?.text && (
-          <a className="text-sm text-emerald-400 underline underline-offset-1" href={link.url}>
+          <Link className="text-sm text-emerald-400 underline underline-offset-1" href={link.url}>
             {link.text}
-          </a>
+          </Link>
         )}
       </p>
     </>
