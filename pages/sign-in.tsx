@@ -1,5 +1,6 @@
 import Head from 'next/head';
 
+import { MainLaoyut } from '../src/components/layouts/main/main';
 import { SignIn } from '../src/components/screens/sign-in/sign-in';
 
 export default function SignInPage() {
@@ -10,7 +11,9 @@ export default function SignInPage() {
         <meta name="description" content="Sign in page" />
       </Head>
       <main>
-        <SignIn />
+        <MainLaoyut>
+          <SignIn />
+        </MainLaoyut>
       </main>
     </>
   );
