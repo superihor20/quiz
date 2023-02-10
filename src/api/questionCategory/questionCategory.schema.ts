@@ -1,9 +1,5 @@
-export type CreateQuestionCategoryInput = {
+export type QuestionCategoryInput = {
   name: string;
-};
-
-export type UpdateQuestionCategoryInput = {
-  name?: string;
 };
 
 export type QuestionCategory = {
