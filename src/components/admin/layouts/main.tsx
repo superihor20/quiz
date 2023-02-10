@@ -23,7 +23,7 @@ export const MainLayoutAdmin: ComponentWithChildren = ({ children }) => {
     token: { colorBgContainer },
   } = theme.useToken();
   const router = useRouter();
-  const breadcrumbItems = getBreadcrumbValues(router.pathname);
+  const breadcrumbItems = getBreadcrumbValues(router.pathname).filter(Boolean);
 
   return (
     <ConfigProvider
