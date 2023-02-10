@@ -34,7 +34,9 @@ export const MainLayoutAdmin: ComponentWithChildren = ({ children }) => {
       }}
     >
       <Layout>
-        <Content style={{ padding: '0 50px' }}>
+        <Content
+          style={{ padding: '0 50px', maxWidth: '1280px', alignSelf: 'center', width: '100%' }}
+        >
           <Breadcrumb style={{ margin: '16px 0' }}>
             {breadcrumbItems.map((breadcrumbItem) => (
               <Breadcrumb.Item key={breadcrumbItem}>{breadcrumbItem}</Breadcrumb.Item>
