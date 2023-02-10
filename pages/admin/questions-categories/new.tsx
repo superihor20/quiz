@@ -1,7 +1,7 @@
 import Head from 'next/head';
 
-import { MainLayoutAdmin } from '../../../src/components/admin/layouts/main';
-import { QuestionCategory } from '../../../src/components/admin/screens/questionCategory/questionCategory';
+import { MainLayoutAdmin } from '../../../src/components/admin/layouts/mainLayoutAdmin';
+import { QuestionCategory } from '../../../src/components/admin/screens/questionCategory/questionCategoryScreen';
 
 export default function QuestionsCategoriesPage() {
   return (

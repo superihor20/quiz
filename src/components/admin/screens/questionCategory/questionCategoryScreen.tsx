@@ -13,7 +13,7 @@ import { Button } from '../../../form/button/button';
 import { Form } from '../../../form/form/form';
 import { Input } from '../../../form/input/input';
 
-export const QuestionCategory = () => {
+export const QuestionCategoryScreen = () => {
   const router = useRouter();
   const questionCategoryId = router.asPath.split('/').pop() || '';
   const {
