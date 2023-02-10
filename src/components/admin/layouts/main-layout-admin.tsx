@@ -6,7 +6,7 @@ import React from 'react';
 
 import { ComponentWithChildren } from '../../../types/component-with-children';
 import { adminPages } from '../../../utils/constans/links';
-import { getBreadcrumbValues } from '../../../utils/helpers/getBreadcrumbValues';
+import { getBreadcrumbValues } from '../../../utils/helpers/get-breadcrumb-values';
 
 const { Content, Footer, Sider } = Layout;
 

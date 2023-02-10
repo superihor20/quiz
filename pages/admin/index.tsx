@@ -1,6 +1,6 @@
 import Head from 'next/head';
 
-import { MainLayoutAdmin } from '../../src/components/admin/layouts/mainLayoutAdmin';
+import { MainLayoutAdmin } from '../../src/components/admin/layouts/main-layout-admin';
 
 export default function Home() {
   return (

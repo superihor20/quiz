@@ -2,7 +2,7 @@ import { enableMapSet } from 'immer';
 import type { AppProps } from 'next/app';
 import { QueryClient, QueryClientProvider } from 'react-query';
 
-import { AuthLayout } from '../src/components/layouts/auth/auth';
+import { AuthLayout } from '../src/components/layouts/auth-layout';
 
 import '../src/assets/scss/global.scss';
 

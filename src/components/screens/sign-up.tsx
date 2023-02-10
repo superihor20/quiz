@@ -1,16 +1,16 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 
-import { authApi, UserCredentials } from '../../../api';
-import { useLocalStorage } from '../../../hooks/useLocalStorage';
-import { pages } from '../../../utils/constans/links';
-import { localStorageKeys } from '../../../utils/enums/local-storage-keys';
-import { CustomError } from '../../../utils/helpers/getErrorMessage';
-import { userCredentialsSchema } from '../../../utils/zod-schemas/user-credentials.schema';
-import { Button } from '../../form/button/button';
-import { FormHelper } from '../../form/form-helper/form-helper';
-import { Form } from '../../form/form/form';
-import { Input } from '../../form/input/input';
+import { authApi, UserCredentials } from '../../api';
+import { useLocalStorage } from '../../hooks/use-local-storage';
+import { pages } from '../../utils/constans/links';
+import { localStorageKeys } from '../../utils/enums/local-storage-keys';
+import { CustomError } from '../../utils/helpers/get-error-message';
+import { userCredentialsSchema } from '../../utils/zod-schemas/user-credentials.schema';
+import { Button } from '../form/button';
+import { Form } from '../form/form';
+import { FormHelper } from '../form/form-helper';
+import { Input } from '../form/input';
 
 export const SignUp = () => {
   const [, setAccessToken] = useLocalStorage<null | string>(localStorageKeys.ACCESS_TOKEN, null);

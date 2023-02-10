@@ -1,4 +1,4 @@
-import { ComponentWithChildren } from '../../../types/component-with-children';
+import { ComponentWithChildren } from '../../types/component-with-children';
 
 type FormProps = ComponentWithChildren<{
   onSubmit: (e: React.FormEvent<HTMLFormElement>) => void;

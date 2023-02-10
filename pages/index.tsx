@@ -1,6 +1,6 @@
 import Head from 'next/head';
 
-import { SignUp } from '../src/components/screens/sign-up/sign-up';
+import { SignUp } from '../src/components/screens/sign-up';
 
 export default function Home() {
   return (

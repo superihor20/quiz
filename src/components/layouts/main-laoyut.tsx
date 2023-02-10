@@ -1,6 +1,6 @@
 import Head from 'next/head';
 
-import { ComponentWithChildren } from '../../../types/component-with-children';
+import { ComponentWithChildren } from '../../types/component-with-children';
 
 export const MainLaoyut: ComponentWithChildren = ({ children }) => {
   return (
