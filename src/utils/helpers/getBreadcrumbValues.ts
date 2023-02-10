@@ -1,5 +1,7 @@
 const dictionary: Record<string, string> = {
   admin: 'Home',
+  'questions-categories': 'Questions categories',
+  new: 'New',
 };
 
 export const getBreadcrumbValues = (path: string): string[] => {
