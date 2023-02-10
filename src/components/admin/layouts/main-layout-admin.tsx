@@ -30,6 +30,8 @@ export const MainLayoutAdmin: ComponentWithChildren = ({ children }) => {
       theme={{
         token: {
           colorPrimary: '#34d399',
+          colorLink: '#059669',
+          colorLinkHover: '#047857',
         },
       }}
     >
