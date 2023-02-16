@@ -3,7 +3,7 @@ import { TitleProps as TitlePropsAntd } from 'antd/es/typography/Title';
 
 import { ComponentWithChildren } from '../../../types/component-with-children';
 
-import classes from './styles.module.css';
+import classes from './styles.module.scss';
 
 const { Title: TitleAntd } = Typography;
 

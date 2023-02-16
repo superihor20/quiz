@@ -4,7 +4,7 @@ import { QueryClient, QueryClientProvider } from 'react-query';
 
 import { AuthLayout } from '../src/components/layouts/auth-layout';
 
-import '../src/assets/css/global.css';
+import '../src/assets/css/global.scss';
 
 const queryClient = new QueryClient();
 
