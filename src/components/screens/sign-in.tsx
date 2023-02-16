@@ -11,6 +11,7 @@ import { userCredentialsSchema } from '../../utils/zod-schemas/user-credentials.
 import { Form } from '../form/form';
 import { FormHelper } from '../form/form-helper';
 import { Input } from '../form/input';
+import { Title } from '../ui/title';
 
 export const SignIn = () => {
   const [, setAccessToken] = useLocalStorage<null | string>(localStorageKeys.ACCESS_TOKEN, null);
@@ -35,7 +36,9 @@ export const SignIn = () => {
 
   return (
     <div>
-      <h1>Sign in</h1>
+      <Title level={2} position="center">
+        Sign in
+      </Title>
       <Form onSubmit={handleSubmitHook((data) => handleSubmit(data))}>
         <Controller
           name="email"

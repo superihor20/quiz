@@ -1,4 +1,4 @@
-import { Divider, Typography } from 'antd';
+import { Divider } from 'antd';
 import Link from 'next/link';
 
 type FormHelper = {
@@ -9,19 +9,12 @@ type FormHelper = {
   };
 };
 
-const { Link: LinkAntd } = Typography;
-
 export const FormHelper: React.FC<FormHelper> = ({ link, text }) => {
   return (
     <>
       <Divider />
       <p style={{ textAlign: 'center' }}>
-        <span>{text}</span>{' '}
-        {link?.text && (
-          <Link href={link.url}>
-            <LinkAntd>{link.text}</LinkAntd>
-          </Link>
-        )}
+        <span>{text}</span> {link?.text && <Link href={link.url}>{link.text}</Link>}
       </p>
     </>
   );
