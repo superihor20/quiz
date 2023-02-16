@@ -1,12 +1,12 @@
 import { BookOutlined } from '@ant-design/icons';
-import { MenuProps, Breadcrumb, Layout, Menu, theme } from 'antd';
+import { MenuProps, Layout, Menu, theme } from 'antd';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import React from 'react';
 
 import { ComponentWithChildren } from '../../../types/component-with-children';
 import { adminPages } from '../../../utils/constans/links';
 import { getBreadcrumbValues } from '../../../utils/helpers/get-breadcrumb-values';
+import { Breadcrumb } from '../../ui/breadcrumb';
 
 const { Content, Footer, Sider } = Layout;
 
@@ -30,11 +30,7 @@ export const MainLayoutAdmin: ComponentWithChildren = ({ children }) => {
       <Content
         style={{ padding: '0 50px', maxWidth: '1280px', alignSelf: 'center', width: '100%' }}
       >
-        <Breadcrumb style={{ margin: '16px 0' }}>
-          {breadcrumbItems.map((breadcrumbItem) => (
-            <Breadcrumb.Item key={breadcrumbItem}>{breadcrumbItem}</Breadcrumb.Item>
-          ))}
-        </Breadcrumb>
+        <Breadcrumb items={breadcrumbItems} />
         <Layout style={{ padding: '24px 0', background: colorBgContainer }}>
           <Sider style={{ background: colorBgContainer }} width={220}>
             <Menu

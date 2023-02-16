@@ -8,7 +8,6 @@ import { pages } from '../../utils/constans/links';
 import { localStorageKeys } from '../../utils/enums/local-storage-keys';
 import { CustomError } from '../../utils/helpers/get-error-message';
 import { userCredentialsSchema } from '../../utils/zod-schemas/user-credentials.schema';
-
 import { Form } from '../form/form';
 import { FormHelper } from '../form/form-helper';
 import { Input } from '../form/input';
@@ -35,8 +34,8 @@ export const SignIn = () => {
   };
 
   return (
-    <div className="max-w-md mx-auto p-4 bg-slate-50 rounded-lg shadow-md">
-      <h1 className="text-2xl font-bold text-center mb-3">Sign in</h1>
+    <div>
+      <h1>Sign in</h1>
       <Form onSubmit={handleSubmitHook((data) => handleSubmit(data))}>
         <Controller
           name="email"

@@ -5,9 +5,5 @@ type FormProps = ComponentWithChildren<{
 }>;
 
 export const Form: FormProps = ({ children, onSubmit }) => {
-  return (
-    <form className="flex gap-3 flex-col" onSubmit={onSubmit}>
-      {children}
-    </form>
-  );
+  return <form onSubmit={onSubmit}>{children}</form>;
 };

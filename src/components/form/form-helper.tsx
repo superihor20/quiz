@@ -18,7 +18,7 @@ export const FormHelper: React.FC<FormHelper> = ({ link, text }) => {
       <p style={{ textAlign: 'center' }}>
         <span>{text}</span>{' '}
         {link?.text && (
-          <Link className="text-sm text-emerald-400 underline underline-offset-1" href={link.url}>
+          <Link href={link.url}>
             <LinkAntd>{link.text}</LinkAntd>
           </Link>
         )}
