@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@ant-design/colors": "^7.0.0",
     "@ant-design/icons": "^5.0.1",
     "@hookform/resolvers": "^2.9.10",
     "@next/font": "13.1.1",

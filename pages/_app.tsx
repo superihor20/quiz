@@ -10,7 +10,7 @@ const queryClient = new QueryClient();
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <ConfigProvider>
+    <ConfigProvider theme={{ token: { colorText: '#fff' } }}>
       <QueryClientProvider client={queryClient}>
         <AuthLayout>
           <Component {...pageProps} />

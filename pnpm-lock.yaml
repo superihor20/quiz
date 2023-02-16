@@ -1,6 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
+  '@ant-design/colors': ^7.0.0
   '@ant-design/icons': ^5.0.1
   '@hookform/resolvers': ^2.9.10
   '@next/font': 13.1.1
@@ -30,6 +31,7 @@ specifiers:
   zod: ^3.20.2
 
 dependencies:
+  '@ant-design/colors': 7.0.0
   '@ant-design/icons': 5.0.1_biqbaboplfbrettd7655fr4n2y
   '@hookform/resolvers': 2.9.11_react-hook-form@7.43.1
   '@next/font': 13.1.1
