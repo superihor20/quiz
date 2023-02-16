@@ -1,16 +1,10 @@
-import { generate } from '@ant-design/colors';
+import { geekblue, magenta, purple } from '@ant-design/colors';
 
-const generatedDarkColors = generate('#333');
-
-export const darkColors = {
-  50: generatedDarkColors[0],
-  100: generatedDarkColors[1],
-  200: generatedDarkColors[2],
-  300: generatedDarkColors[3],
-  400: generatedDarkColors[4],
-  500: generatedDarkColors[5],
-  600: generatedDarkColors[6],
-  700: generatedDarkColors[7],
-  800: generatedDarkColors[8],
-  900: generatedDarkColors[9],
-};
+export const animationGradient = `linear-gradient(
+  90deg,
+  ${magenta[5]} 0%,
+  ${geekblue[6]} 20%,
+  ${purple[4]} 50%,
+  ${geekblue[6]} 80%,
+  ${magenta[5]} 100%
+)`;

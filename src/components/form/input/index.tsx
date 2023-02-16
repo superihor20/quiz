@@ -1,5 +1,7 @@
-import { Input as InputAntd, InputProps as InputAntdProps } from 'antd';
+import { InputProps as InputAntdProps } from 'antd';
 import { ControllerRenderProps, FieldPath, FieldValues } from 'react-hook-form';
+
+import { ErrorText, InputStyled, InputWrapper } from './input.styled';
 
 type InputProps<TForm extends FieldValues, TName extends FieldPath<TForm>> = {
   error?: string;
@@ -12,9 +14,9 @@ export const Input = <TForm extends FieldValues, TName extends FieldPath<TForm>>
   ...antdInputProps
 }: InputProps<TForm, TName>) => {
   return (
-    <>
-      <InputAntd status={error ? 'error' : ''} {...antdInputProps} {...field} />
-      {error ? <p style={{ color: 'red', margin: '10px 0 0' }}>{error}</p> : null}
-    </>
+    <InputWrapper>
+      <InputStyled status={error ? 'error' : ''} {...antdInputProps} {...field} />
+      {error ? <ErrorText>{error}</ErrorText> : null}
+    </InputWrapper>
   );
 };

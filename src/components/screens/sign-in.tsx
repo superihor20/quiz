@@ -1,5 +1,4 @@
 import { zodResolver } from '@hookform/resolvers/zod';
-import { Button } from 'antd';
 import { Controller, useForm } from 'react-hook-form';
 
 import { authApi, UserCredentials } from '../../api';
@@ -8,9 +7,11 @@ import { pages } from '../../utils/constans/links';
 import { localStorageKeys } from '../../utils/enums/local-storage-keys';
 import { CustomError } from '../../utils/helpers/get-error-message';
 import { userCredentialsSchema } from '../../utils/zod-schemas/user-credentials.schema';
+import { Button } from '../form/button';
 import { Form } from '../form/form';
 import { FormHelper } from '../form/form-helper';
 import { Input } from '../form/input';
+import { Paper } from '../ui/paper';
 import { Title } from '../ui/title';
 
 export const SignIn = () => {
@@ -35,24 +36,31 @@ export const SignIn = () => {
   };
 
   return (
-    <div>
-      <Title level={2} align="center">
-        Sign in
-      </Title>
+    <Paper>
+      <Title align="center">Sign in</Title>
       <Form onSubmit={handleSubmitHook((data) => handleSubmit(data))}>
         <Controller
           name="email"
           control={control}
-          render={({ field }) => <Input error={errors.email?.message} field={field} />}
+          render={({ field }) => (
+            <Input error={errors.email?.message} field={field} placeholder="Email" size="large" />
+          )}
         />
         <Controller
           name="password"
           control={control}
-          render={({ field }) => <Input error={errors.password?.message} field={field} />}
+          render={({ field }) => (
+            <Input
+              error={errors.password?.message}
+              field={field}
+              placeholder="Password"
+              size="large"
+            />
+          )}
         />
         <Button htmlType="submit">Submit</Button>
-        <FormHelper text="Don't have an account?" link={{ text: 'Sign up', url: pages.signUp }} />
       </Form>
-    </div>
+      <FormHelper text="Don't have an account?" link={{ text: 'Sign up', url: pages.signUp }} />
+    </Paper>
   );
 };
