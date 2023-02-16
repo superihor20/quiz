@@ -3,8 +3,6 @@ import { TitleProps as TitlePropsAntd } from 'antd/es/typography/Title';
 
 import { ComponentWithChildren } from '../../../types/component-with-children';
 
-import classes from './styles.module.scss';
-
 const { Title: TitleAntd } = Typography;
 
 type TitleProps = ComponentWithChildren<
@@ -12,9 +10,5 @@ type TitleProps = ComponentWithChildren<
 >;
 
 export const Title: TitleProps = ({ children, position = 'left', ...antdTitleProps }) => {
-  return (
-    <TitleAntd className={`${classes[position]}`} {...antdTitleProps}>
-      {children}
-    </TitleAntd>
-  );
+  return <TitleAntd {...antdTitleProps}>{children}</TitleAntd>;
 };
