@@ -1,5 +1,6 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Controller, useForm } from 'react-hook-form';
+import { useMutation } from 'react-query';
 
 import { authApi, UserCredentials } from '../../api';
 import { useLocalStorage } from '../../hooks/use-local-storage';
@@ -24,15 +25,17 @@ export const SignIn = () => {
   } = useForm<UserCredentials>({
     resolver: zodResolver(userCredentialsSchema),
   });
+  const mutation = useMutation(authApi.signIn, {
+    onSuccess: ({ accessToken }) => {
+      setAccessToken(accessToken);
+    },
+    onError: (e) => {
+      setError('email', { message: (e as CustomError).message });
+    },
+  });
 
   const handleSubmit = async (data: UserCredentials) => {
-    try {
-      const { accessToken } = await authApi.signIn(data);
-
-      setAccessToken(accessToken);
-    } catch (e) {
-      setError('email', { message: (e as CustomError).message });
-    }
+    mutation.mutate(data);
   };
 
   return (
@@ -55,6 +58,7 @@ export const SignIn = () => {
               field={field}
               placeholder="Password"
               size="large"
+              type="password"
             />
           )}
         />

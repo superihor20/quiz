@@ -46,7 +46,7 @@ export const SignUp = () => {
           name="email"
           control={control}
           render={({ field }) => (
-            <Input error={errors.email?.message} field={field} placeholder="Email" />
+            <Input error={errors.email?.message} field={field} placeholder="Email" size="large" />
           )}
         />
         <Controller
@@ -58,6 +58,7 @@ export const SignUp = () => {
               field={field}
               placeholder="Password"
               type="password"
+              size="large"
             />
           )}
         />
