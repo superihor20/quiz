@@ -8,7 +8,7 @@ export default function QuestionsCategoriesPage() {
     <>
       <Head>
         <title>New question category</title>
-        <meta name="description" content="Challenges dashboard" />
+        <meta name="description" content="New question category" />
       </Head>
       <main>
         <MainLayoutAdmin>

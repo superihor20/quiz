@@ -7,7 +7,7 @@ export default function Home() {
     <>
       <Head>
         <title>Admin pannel</title>
-        <meta name="description" content="Challenges dashboard" />
+        <meta name="description" content="Admin pannel" />
       </Head>
       <main>
         <MainLayoutAdmin />

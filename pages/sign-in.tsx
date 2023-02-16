@@ -8,7 +8,7 @@ export default function SignInPage() {
     <>
       <Head>
         <title>Sign in</title>
-        <meta name="description" content="Sign in page" />
+        <meta name="description" content="Sign in" />
       </Head>
       <main>
         <MainLaoyut>

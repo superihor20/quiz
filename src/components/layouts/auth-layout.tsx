@@ -23,7 +23,7 @@ export const AuthLayout: ComponentWithChildren = ({ children }) => {
 
   useEffect(() => {
     if (checkRouteAvailability(`${baseUrl}${router.pathname}`, accessToken)) {
-      router.push('/sign-in');
+      router.push(pages.signIn);
     }
   }, [accessToken]);
 

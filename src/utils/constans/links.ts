@@ -9,4 +9,4 @@ export const pages = {
 export const adminPages = {
   main: `${adminBaseUrl}`,
   questionsCategories: `${adminBaseUrl}/questions-categories`,
-};
+} as const;

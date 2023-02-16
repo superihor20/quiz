@@ -1,6 +1,7 @@
 import { zodResolver } from '@hookform/resolvers/zod';
+import { Button } from 'antd';
 import { useRouter } from 'next/router';
-import { useForm } from 'react-hook-form';
+import { Controller, useForm } from 'react-hook-form';
 import { useQuery } from 'react-query';
 
 import { questionCategoryApi } from '../../../api/question-category/question-category.api';
@@ -9,7 +10,6 @@ import { adminPages } from '../../../utils/constans/links';
 import { QueryKeys } from '../../../utils/enums/query-keys';
 import { isItIdFromUrl } from '../../../utils/helpers/is-it-id-from-url';
 import { questionCategorySchema } from '../../../utils/zod-schemas/question-category.schema';
-import { Button } from '../../form/button';
 import { Form } from '../../form/form';
 import { Input } from '../../form/input';
 
@@ -17,7 +17,7 @@ export const QuestionCategoryScreen = () => {
   const router = useRouter();
   const questionCategoryId = router.asPath.split('/').pop() || '';
   const {
-    register,
+    control,
     handleSubmit: handleSubmitHook,
     formState: { errors },
     setValue,
@@ -62,16 +62,12 @@ export const QuestionCategoryScreen = () => {
 
   return (
     <Form onSubmit={handleSubmitHook((data) => handleSubmit(data))}>
-      <Input
-        register={register}
-        label="Name"
-        type="text"
+      <Controller
         name="name"
-        errorMessage={errors.name?.message}
+        control={control}
+        render={({ field }) => <Input error={errors.name?.message} field={field} />}
       />
-      <Button type="submit" position="left">
-        Create
-      </Button>
+      <Button htmlType="submit">Create</Button>
     </Form>
   );
 };

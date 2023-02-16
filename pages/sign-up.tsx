@@ -8,7 +8,7 @@ export default function SignUpPage() {
     <>
       <Head>
         <title>Sign up</title>
-        <meta name="description" content="Sign up page" />
+        <meta name="description" content="Sign up" />
       </Head>
       <main>
         <MainLaoyut>
