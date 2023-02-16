@@ -36,7 +36,7 @@ export const SignIn = () => {
 
   return (
     <div>
-      <Title level={2} position="center">
+      <Title level={2} align="center">
         Sign in
       </Title>
       <Form onSubmit={handleSubmitHook((data) => handleSubmit(data))}>

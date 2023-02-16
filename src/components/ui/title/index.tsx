@@ -1,14 +1,15 @@
-import { Typography } from 'antd';
-import { TitleProps as TitlePropsAntd } from 'antd/es/typography/Title';
+import { TitleProps as AntdTitleProps } from 'antd/es/typography/Title';
 
 import { ComponentWithChildren } from '../../../types/component-with-children';
 
-const { Title: TitleAntd } = Typography;
+import { TitleStyled, TitleStyledProps } from './title.styled';
 
-type TitleProps = ComponentWithChildren<
-  { position?: 'left' | 'center' | 'right' } & TitlePropsAntd
->;
+type TitleProps = ComponentWithChildren<TitleStyledProps & AntdTitleProps>;
 
-export const Title: TitleProps = ({ children, position = 'left', ...antdTitleProps }) => {
-  return <TitleAntd {...antdTitleProps}>{children}</TitleAntd>;
+export const Title: TitleProps = ({ children, align = 'left', ...antdTitleProps }) => {
+  return (
+    <TitleStyled align={align} {...antdTitleProps}>
+      {children}
+    </TitleStyled>
+  );
 };
