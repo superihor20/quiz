@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-import type { Question } from '@/api/types';
+import type { Question, QuestionCategory } from '@/api/types';
 import { adminPages } from '@/constants/links';
 
 import { ActionColumn } from './components/action-column';
@@ -20,10 +20,8 @@ export const columns: ColumnsType<Question> = [
     title: 'Category',
     dataIndex: 'category',
     key: 'category',
-    render: (category) => {
-      return (
-        <Link href={`${adminPages.questionsCategories}/${category?.id}`}>{category?.name}</Link>
-      );
+    render: (category: QuestionCategory) => {
+      return <Link href={`${adminPages.questionsCategories}/${category.id}`}>{category.name}</Link>;
     },
   },
   {
