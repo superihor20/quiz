@@ -2,7 +2,7 @@ import { ConfigProvider, theme } from 'antd';
 import type { AppProps } from 'next/app';
 import { QueryClient, QueryClientProvider } from 'react-query';
 
-import { AuthLayout } from '../src/components/layouts/auth-layout';
+import { AuthLayout } from '@/layouts/auth-layout';
 
 import '../src/assets/css/global.css';
 

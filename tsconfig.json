@@ -24,7 +24,8 @@
       "@/zod-schemas/*": ["src/utils/zod-schemas/*.ts"],
       "@/hooks/*": ["src/hooks/*.ts"],
       "@/ui/*": ["src/components/ui/*"],
-      "@/screens/*": ["src/components/screens/*"]
+      "@/screens/*": ["src/components/screens/*"],
+      "@/layouts/*": ["src/components/layouts/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
