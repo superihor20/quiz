@@ -19,6 +19,7 @@ export const QueryLayout: ComponentWithChildren = ({ children }) => {
           refetchInterval: false,
           refetchOnWindowFocus: false,
           refetchIntervalInBackground: false,
+          refetchOnMount: false,
           onError: showError,
         },
         mutations: {

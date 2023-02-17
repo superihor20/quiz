@@ -4,7 +4,7 @@ import { axios } from '../instance';
 
 import { AuthResponse, UserCredentials } from './auth.schemas';
 
-import { authEnpoints } from '@/constants/endpoints';
+import { authEndpoints } from '@/constants/endpoints';
 
 class AuthApi {
   #requestInstance: AxiosInstance;
@@ -14,11 +14,11 @@ class AuthApi {
   }
 
   signIn = async (userCredentials: UserCredentials): Promise<AuthResponse> => {
-    return this.#requestInstance.post(authEnpoints.signIn, userCredentials);
+    return this.#requestInstance.post(authEndpoints.signIn, userCredentials);
   };
 
   signUp = async (userCredentials: UserCredentials): Promise<AuthResponse> => {
-    return this.#requestInstance.post(authEnpoints.signUp, userCredentials);
+    return this.#requestInstance.post(authEndpoints.signUp, userCredentials);
   };
 }
 

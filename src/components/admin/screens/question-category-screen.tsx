@@ -43,7 +43,6 @@ export const QuestionCategoryScreen = () => {
       onSuccess: (data) => {
         setValue('name', data.name);
       },
-      refetchOnMount: false,
     },
   );
 
@@ -89,7 +88,9 @@ export const QuestionCategoryScreen = () => {
       <Controller
         name="name"
         control={control}
-        render={({ field }) => <Input error={errors.name?.message} field={field} />}
+        render={({ field }) => (
+          <Input error={errors.name?.message} field={field} placeholder="Question category name" />
+        )}
       />
       <Button htmlType="submit">{isItIdFromUrl(questionCategoryId) ? 'Update' : 'Create'}</Button>
     </Form>

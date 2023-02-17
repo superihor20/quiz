@@ -4,3 +4,5 @@ export type {
   QuestionCategory,
   QuestionCategoryInput,
 } from './question-category/question-category.schema';
+
+export type { Question, QuestionInput } from './question/question.schema';

@@ -5,7 +5,7 @@ import { axios } from '../instance';
 
 import { QuestionCategoryInput, QuestionCategory } from './question-category.schema';
 
-import { questionsCategoriesEnpoint } from '@/constants/endpoints';
+import { questionsCategoriesEndpoint } from '@/constants/endpoints';
 
 class QuestionCategoryApi extends ApiFactory<
   QuestionCategoryInput,
@@ -13,7 +13,7 @@ class QuestionCategoryApi extends ApiFactory<
   QuestionCategory
 > {
   constructor(axiosInstance: AxiosInstance) {
-    super(questionsCategoriesEnpoint, axiosInstance);
+    super(questionsCategoriesEndpoint, axiosInstance);
   }
 }
 

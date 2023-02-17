@@ -1,6 +1,8 @@
-export const authEnpoints = {
+export const authEndpoints = {
   signIn: '/auth/sign-in',
   signUp: '/auth/sign-up',
 } as const;
 
-export const questionsCategoriesEnpoint = '/question-category';
+export const questionsCategoriesEndpoint = '/question-category';
+
+export const questionEndpoint = '/question';

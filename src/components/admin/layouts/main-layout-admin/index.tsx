@@ -24,6 +24,11 @@ const menuItems: MenuProps['items'] = [
     label: <Link href={adminPages.questionsCategories}>Questions Categories</Link>,
     icon: <BookOutlined />,
   },
+  {
+    key: adminPages.questions,
+    label: <Link href={adminPages.questions}>Questions</Link>,
+    icon: <BookOutlined />,
+  },
 ];
 
 export const MainLayoutAdmin: ComponentWithChildren = ({ children }) => {

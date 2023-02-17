@@ -3,7 +3,7 @@ import Head from 'next/head';
 import { MainLayoutAdmin } from '@/admin/layouts/main-layout-admin';
 import { QuestionCategoryScreen } from '@/admin/screens/question-category-screen';
 
-export default function QuestionsCategoriesPage() {
+export default function NewQuestionCategoryPage() {
   return (
     <>
       <Head>
