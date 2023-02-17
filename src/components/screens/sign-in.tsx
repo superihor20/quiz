@@ -2,15 +2,14 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { Controller, useForm } from 'react-hook-form';
 import { useMutation } from 'react-query';
 
-import { Button } from '../form/button';
-import { Form } from '../form/form';
-import { FormHelper } from '../form/form-helper';
-import { Input } from '../form/input';
-
 import { authApi } from '@/api';
 import type { UserCredentials } from '@/api/types';
 import { pages } from '@/constants/links';
 import { localStorageKeys } from '@/enums/local-storage-keys';
+import { Button } from '@/form/button';
+import { Form } from '@/form/form';
+import { FormHelper } from '@/form/form-helper';
+import { Input } from '@/form/input';
 import { CustomError } from '@/helpers/get-error-message';
 import { useLocalStorage } from '@/hooks/use-local-storage';
 import { Paper } from '@/ui/paper';

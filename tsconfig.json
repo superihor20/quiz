@@ -25,7 +25,8 @@
       "@/hooks/*": ["src/hooks/*.ts"],
       "@/ui/*": ["src/components/ui/*"],
       "@/screens/*": ["src/components/screens/*"],
-      "@/layouts/*": ["src/components/layouts/*"]
+      "@/layouts/*": ["src/components/layouts/*"],
+      "@/form/*": ["src/components/form/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],

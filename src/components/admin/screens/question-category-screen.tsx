@@ -4,13 +4,12 @@ import { useRouter } from 'next/router';
 import { Controller, useForm } from 'react-hook-form';
 import { useQuery } from 'react-query';
 
-import { Form } from '../../form/form';
-import { Input } from '../../form/input';
-
 import { questionCategoryApi } from '@/api';
 import { QuestionCategoryInput } from '@/api/types';
 import { adminPages } from '@/constants/links';
 import { QueryKeys } from '@/enums/query-keys';
+import { Form } from '@/form/form';
+import { Input } from '@/form/input';
 import { isItIdFromUrl } from '@/helpers/is-it-id-from-url';
 import { questionCategorySchema } from '@/zod-schemas/question-category.schema';
 
