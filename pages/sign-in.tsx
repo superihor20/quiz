@@ -1,7 +1,8 @@
 import Head from 'next/head';
 
 import { MainLayout } from '../src/components/layouts/main-layout';
-import { SignIn } from '../src/components/screens/sign-in';
+
+import { SignIn } from '@/screens/sign-in';
 
 export default function SignInPage() {
   return (

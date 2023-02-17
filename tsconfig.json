@@ -23,7 +23,8 @@
       "@/helpers/*": ["src/utils/helpers/*.ts"],
       "@/zod-schemas/*": ["src/utils/zod-schemas/*.ts"],
       "@/hooks/*": ["src/hooks/*.ts"],
-      "@/ui/*": ["src/components/ui/*"]
+      "@/ui/*": ["src/components/ui/*"],
+      "@/screens/*": ["src/components/screens/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],

@@ -1,7 +1,8 @@
 import Head from 'next/head';
 
 import { MainLayout } from '../src/components/layouts/main-layout';
-import { SignUp } from '../src/components/screens/sign-up';
+
+import { SignUp } from '@/screens/sign-up';
 
 export default function SignUpPage() {
   return (
