@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import styled, { keyframes } from 'styled-components';
 
-import { animationGradient } from '../../../utils/constans/colors';
+import { animationGradient } from '@/constants/colors';
 
 const gradientAnimation = keyframes`
 	0% {

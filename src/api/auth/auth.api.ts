@@ -1,9 +1,10 @@
 import { AxiosInstance } from 'axios';
 
-import { authEnpoints } from '../../utils/constans/endpoints';
 import { axios } from '../instance';
 
 import { AuthResponse, UserCredentials } from './auth.schemas';
+
+import { authEnpoints } from '@/constants/endpoints';
 
 class AuthApi {
   #requestInstance: AxiosInstance;

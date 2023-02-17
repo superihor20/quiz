@@ -17,7 +17,8 @@
     "baseUrl": ".",
     "paths": {
       "@/api": ["src/api/index.ts"],
-      "@/api/types": ["src/api/index.types.ts"]
+      "@/api/types": ["src/api/index.types.ts"],
+      "@/constants/*": ["src/utils/constants/*.ts"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],

@@ -4,7 +4,6 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 
 import { ComponentWithChildren } from '../../../../types/component-with-children';
-import { adminPages } from '../../../../utils/constans/links';
 import { getBreadcrumbValues } from '../../../../utils/helpers/get-breadcrumb-values';
 import { Breadcrumb } from '../../../ui/breadcrumb';
 
@@ -15,6 +14,8 @@ import {
   FooterStyled,
   LayoutStyled,
 } from './main-layout-admin.styled';
+
+import { adminPages } from '@/constants/links';
 
 const { Sider } = Layout;
 

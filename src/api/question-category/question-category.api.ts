@@ -1,10 +1,11 @@
 import { AxiosInstance } from 'axios';
 
-import { questionsCategoriesEnpoint } from '../../utils/constans/endpoints';
 import { ApiFactory } from '../factory/api.factory';
 import { axios } from '../instance';
 
 import { QuestionCategoryInput, QuestionCategory } from './question-category.schema';
+
+import { questionsCategoriesEnpoint } from '@/constants/endpoints';
 
 class QuestionCategoryApi extends ApiFactory<
   QuestionCategoryInput,

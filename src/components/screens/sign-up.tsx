@@ -2,9 +2,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { Controller, useForm } from 'react-hook-form';
 import { useMutation } from 'react-query';
 
-import { authApi, UserCredentials } from '../../api';
 import { useLocalStorage } from '../../hooks/use-local-storage';
-import { pages } from '../../utils/constans/links';
 import { localStorageKeys } from '../../utils/enums/local-storage-keys';
 import { CustomError } from '../../utils/helpers/get-error-message';
 import { userCredentialsSchema } from '../../utils/zod-schemas/user-credentials.schema';
@@ -14,6 +12,10 @@ import { FormHelper } from '../form/form-helper';
 import { Input } from '../form/input';
 import { Paper } from '../ui/paper';
 import { Title } from '../ui/title';
+
+import { authApi } from '@/api';
+import type { UserCredentials } from '@/api/types';
+import { pages } from '@/constants/links';
 
 export const SignUp = () => {
   const [, setAccessToken] = useLocalStorage<null | string>(localStorageKeys.ACCESS_TOKEN, null);

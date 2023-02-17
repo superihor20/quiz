@@ -3,8 +3,9 @@ import { useEffect, useState } from 'react';
 
 import { useLocalStorage } from '../../hooks/use-local-storage';
 import { ComponentWithChildren } from '../../types/component-with-children';
-import { baseUrl, pages } from '../../utils/constans/links';
 import { localStorageKeys } from '../../utils/enums/local-storage-keys';
+
+import { baseUrl, pages } from '@/constants/links';
 
 const publicRoutes = new Set<string>([pages.signIn, pages.signUp]);
 
