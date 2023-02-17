@@ -2,7 +2,6 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { Controller, useForm } from 'react-hook-form';
 import { useMutation } from 'react-query';
 
-import { useLocalStorage } from '../../hooks/use-local-storage';
 import { Button } from '../form/button';
 import { Form } from '../form/form';
 import { FormHelper } from '../form/form-helper';
@@ -15,6 +14,7 @@ import type { UserCredentials } from '@/api/types';
 import { pages } from '@/constants/links';
 import { localStorageKeys } from '@/enums/local-storage-keys';
 import { CustomError } from '@/helpers/get-error-message';
+import { useLocalStorage } from '@/hooks/use-local-storage';
 import { userCredentialsSchema } from '@/zod-schemas/user-credentials.schema';
 
 export const SignIn = () => {

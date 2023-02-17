@@ -21,7 +21,8 @@
       "@/constants/*": ["src/utils/constants/*.ts"],
       "@/enums/*": ["src/utils/enums/*.ts"],
       "@/helpers/*": ["src/utils/helpers/*.ts"],
-      "@/zod-schemas/*": ["src/utils/zod-schemas/*.ts"]
+      "@/zod-schemas/*": ["src/utils/zod-schemas/*.ts"],
+      "@/hooks/*": ["src/hooks/*.ts"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],

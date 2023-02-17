@@ -1,11 +1,11 @@
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 
-import { useLocalStorage } from '../../hooks/use-local-storage';
 import { ComponentWithChildren } from '../../types/component-with-children';
 
 import { baseUrl, pages } from '@/constants/links';
 import { localStorageKeys } from '@/enums/local-storage-keys';
+import { useLocalStorage } from '@/hooks/use-local-storage';
 
 const publicRoutes = new Set<string>([pages.signIn, pages.signUp]);
 
