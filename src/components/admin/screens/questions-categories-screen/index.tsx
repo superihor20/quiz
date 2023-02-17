@@ -9,8 +9,12 @@ import { adminPages } from '@/constants/links';
 import { QueryKeys } from '@/enums/query-keys';
 
 export const QuestionsCategoriesScreens: React.FC = () => {
-  const { data, isLoading } = useQuery([QueryKeys.QUESTIONS_CATEGORIES], () =>
-    questionCategoryApi.getAll(),
+  const { data, isLoading } = useQuery(
+    [QueryKeys.QUESTIONS_CATEGORIES],
+    () => questionCategoryApi.getAll(),
+    {
+      refetchOnMount: false,
+    },
   );
 
   return (
