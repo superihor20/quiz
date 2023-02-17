@@ -28,7 +28,8 @@
       "@/layouts/*": ["src/components/layouts/*"],
       "@/form/*": ["src/components/form/*"],
       "@/admin/layouts/*": ["src/components/admin/layouts/*"],
-      "@/admin/screens/*": ["src/components/admin/screens/*"]
+      "@/admin/screens/*": ["src/components/admin/screens/*"],
+      "@/types/*": ["src/types/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
