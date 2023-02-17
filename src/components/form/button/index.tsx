@@ -1,6 +1,6 @@
-import { ButtonStyled, ButtonStyledProps } from './button.styled';
-
 import { ComponentWithChildren } from '@/types/component-with-children';
+
+import { ButtonStyled, ButtonStyledProps } from './button.styled';
 
 type ButtonProps = ComponentWithChildren<
   {

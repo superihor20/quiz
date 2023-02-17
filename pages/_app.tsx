@@ -1,8 +1,9 @@
 import { ConfigProvider, theme } from 'antd';
-import type { AppProps } from 'next/app';
 
 import { AuthLayout } from '@/layouts/auth-layout';
 import { QueryLayout } from '@/layouts/query-layout';
+
+import type { AppProps } from 'next/app';
 
 import '../src/assets/css/global.css';
 

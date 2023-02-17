@@ -1,8 +1,8 @@
 import Head from 'next/head';
 
-import { MainLayoutStyled } from './main-layout.styled';
-
 import { ComponentWithChildren } from '@/types/component-with-children';
+
+import { MainLayoutStyled } from './main-layout.styled';
 
 export const MainLayout: ComponentWithChildren = ({ children }) => {
   return (

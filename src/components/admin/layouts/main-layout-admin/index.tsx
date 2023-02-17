@@ -3,6 +3,11 @@ import { MenuProps, Layout, Menu, theme } from 'antd';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 
+import { adminPages } from '@/constants/links';
+import { getBreadcrumbValues } from '@/helpers/get-breadcrumb-values';
+import { ComponentWithChildren } from '@/types/component-with-children';
+import { Breadcrumb } from '@/ui/breadcrumb';
+
 import {
   ContentLayoutStyled,
   ContentStyled,
@@ -10,11 +15,6 @@ import {
   FooterStyled,
   LayoutStyled,
 } from './main-layout-admin.styled';
-
-import { adminPages } from '@/constants/links';
-import { getBreadcrumbValues } from '@/helpers/get-breadcrumb-values';
-import { ComponentWithChildren } from '@/types/component-with-children';
-import { Breadcrumb } from '@/ui/breadcrumb';
 
 const { Sider } = Layout;
 
