@@ -2,7 +2,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { Button } from 'antd';
 import { useRouter } from 'next/router';
 import { Controller, useForm } from 'react-hook-form';
-import { useQuery } from 'react-query';
+import { useMutation, useQuery } from 'react-query';
 
 import { questionCategoryApi } from '@/api';
 import { QuestionCategoryInput } from '@/api/types';
@@ -11,6 +11,7 @@ import { QueryKeys } from '@/enums/query-keys';
 import { Form } from '@/form/form';
 import { Input } from '@/form/input';
 import { isItIdFromUrl } from '@/helpers/is-it-id-from-url';
+import { useMessage } from '@/hooks/use-message';
 import { questionCategorySchema } from '@/zod-schemas/question-category.schema';
 
 export const QuestionCategoryScreen = () => {
@@ -24,6 +25,22 @@ export const QuestionCategoryScreen = () => {
   } = useForm<QuestionCategoryInput>({
     resolver: zodResolver(questionCategorySchema),
   });
+  const { success } = useMessage();
+  const createMutation = useMutation(questionCategoryApi.create, {
+    onSuccess: ({ id }) => {
+      success('Question category successfully created');
+      router.push(`${adminPages.questionsCategories}/${id}`);
+    },
+  });
+  const updateMutation = useMutation(
+    ({ id, input }: { id: number; input: QuestionCategoryInput }) =>
+      questionCategoryApi.update(id, input),
+    {
+      onSuccess: () => {
+        success('Question category successfully updated');
+      },
+    },
+  );
 
   useQuery(
     [QueryKeys.QUESTION_CATEGORY, questionCategoryId],
@@ -37,13 +54,11 @@ export const QuestionCategoryScreen = () => {
   );
 
   const createNewQuestionCategory = async (data: QuestionCategoryInput) => {
-    const questionCategory = await questionCategoryApi.create(data);
-
-    router.push(`${adminPages.questionsCategories}/${questionCategory.id}`);
+    createMutation.mutate(data);
   };
 
   const updateQuestionCategory = async (id: number, data: QuestionCategoryInput) => {
-    questionCategoryApi.update(id, data);
+    updateMutation.mutate({ id, input: data });
   };
 
   const handleSubmit = async (data: QuestionCategoryInput) => {
