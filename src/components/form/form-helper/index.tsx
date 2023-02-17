@@ -1,4 +1,4 @@
-import { Link } from '../../ui/link';
+import { GradientLink } from '../../ui/gradient-link';
 
 import { DividerStyled, Text } from './form-helper.styled';
 
@@ -15,7 +15,7 @@ export const FormHelper: React.FC<FormHelper> = ({ link, text }) => {
     <>
       <DividerStyled />
       <Text>
-        {text} {link?.text && <Link href={link.url}>{link.text}</Link>}
+        {text} {link?.text && <GradientLink href={link.url}>{link.text}</GradientLink>}
       </Text>
     </>
   );

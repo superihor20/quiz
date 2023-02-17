@@ -9,23 +9,23 @@ export class ApiFactory<TCreateInput, TUpdateInput, T> {
     this.#requestInstance = instance;
   }
 
-  async create(input: TCreateInput): Promise<T> {
+  create = async (input: TCreateInput): Promise<T> => {
     return this.#requestInstance.post(this.endpoint, input);
-  }
+  };
 
-  async update(id: number, input: TUpdateInput): Promise<T> {
+  update = async (id: number, input: TUpdateInput): Promise<T> => {
     return this.#requestInstance.patch(`${this.endpoint}/${id}`, input);
-  }
+  };
 
-  async getAll(): Promise<T[]> {
+  getAll = async (): Promise<T[]> => {
     return this.#requestInstance.get(this.endpoint);
-  }
+  };
 
-  async getById(id: number): Promise<T> {
+  getById = async (id: number): Promise<T> => {
     return this.#requestInstance.get(`${this.endpoint}/${id}`);
-  }
+  };
 
-  async delete(id: number): Promise<void> {
+  delete = async (id: number): Promise<void> => {
     return this.#requestInstance.delete(`${this.endpoint}/${id}`);
-  }
+  };
 }

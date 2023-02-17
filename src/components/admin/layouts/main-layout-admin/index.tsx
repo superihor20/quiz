@@ -3,12 +3,20 @@ import { MenuProps, Layout, Menu, theme } from 'antd';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 
-import { ComponentWithChildren } from '../../../types/component-with-children';
-import { adminPages } from '../../../utils/constans/links';
-import { getBreadcrumbValues } from '../../../utils/helpers/get-breadcrumb-values';
-import { Breadcrumb } from '../../ui/breadcrumb';
+import { ComponentWithChildren } from '../../../../types/component-with-children';
+import { adminPages } from '../../../../utils/constans/links';
+import { getBreadcrumbValues } from '../../../../utils/helpers/get-breadcrumb-values';
+import { Breadcrumb } from '../../../ui/breadcrumb';
 
-const { Content, Footer, Sider } = Layout;
+import {
+  ContentLayoutStyled,
+  ContentStyled,
+  ContentWrapper,
+  FooterStyled,
+  LayoutStyled,
+} from './main-layout-admin.styled';
+
+const { Sider } = Layout;
 
 const menuItems: MenuProps['items'] = [
   {
@@ -26,12 +34,10 @@ export const MainLayoutAdmin: ComponentWithChildren = ({ children }) => {
   const breadcrumbItems = getBreadcrumbValues(router.pathname).filter(Boolean);
 
   return (
-    <Layout>
-      <Content
-        style={{ padding: '0 50px', maxWidth: '1280px', alignSelf: 'center', width: '100%' }}
-      >
+    <LayoutStyled>
+      <ContentStyled>
         <Breadcrumb items={breadcrumbItems} />
-        <Layout style={{ padding: '24px 0', background: colorBgContainer }}>
+        <ContentLayoutStyled style={{ background: colorBgContainer }}>
           <Sider style={{ background: colorBgContainer }} width={220}>
             <Menu
               mode="inline"
@@ -40,10 +46,10 @@ export const MainLayoutAdmin: ComponentWithChildren = ({ children }) => {
               items={menuItems}
             />
           </Sider>
-          <Content style={{ padding: '0 24px', minHeight: 280 }}>{children}</Content>
-        </Layout>
-      </Content>
-      <Footer style={{ textAlign: 'center' }}>Ihor Naidonov ©2023 Created by Ihor Naidonov</Footer>
-    </Layout>
+          <ContentWrapper>{children}</ContentWrapper>
+        </ContentLayoutStyled>
+      </ContentStyled>
+      <FooterStyled>Ihor Naidonov ©2023 Created by Ihor Naidonov</FooterStyled>
+    </LayoutStyled>
   );
 };

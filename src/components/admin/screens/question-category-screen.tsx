@@ -47,17 +47,13 @@ export const QuestionCategoryScreen = () => {
   };
 
   const handleSubmit = async (data: QuestionCategoryInput) => {
-    try {
-      if (!isItIdFromUrl(questionCategoryId)) {
-        createNewQuestionCategory(data);
+    if (!isItIdFromUrl(questionCategoryId)) {
+      createNewQuestionCategory(data);
 
-        return;
-      }
-
-      updateQuestionCategory(+questionCategoryId, data);
-    } catch (e) {
-      console.error(e);
+      return;
     }
+
+    updateQuestionCategory(+questionCategoryId, data);
   };
 
   return (
@@ -67,7 +63,7 @@ export const QuestionCategoryScreen = () => {
         control={control}
         render={({ field }) => <Input error={errors.name?.message} field={field} />}
       />
-      <Button htmlType="submit">Create</Button>
+      <Button htmlType="submit">{isItIdFromUrl(questionCategoryId) ? 'Update' : 'Create'}</Button>
     </Form>
   );
 };

@@ -8,6 +8,7 @@ type PopConfirmProps<TMutationParam> = PropsWithChildren<{
   mutationParam: TMutationParam;
   mutationQuery: (param: TMutationParam) => Promise<void>;
   onCancel?: () => Promise<void> | void;
+  onOk?: () => Promise<void> | void;
 }>;
 
 export const PopConfirm = <TMutationParam,>({
@@ -16,6 +17,7 @@ export const PopConfirm = <TMutationParam,>({
   children,
   mutationQuery,
   onCancel,
+  onOk,
   mutationParam,
 }: PopConfirmProps<TMutationParam>) => {
   const { mutateAsync, isLoading } = useMutation(mutationQuery);
@@ -31,6 +33,7 @@ export const PopConfirm = <TMutationParam,>({
 
   const handleOk = async () => {
     await mutateAsync(mutationParam);
+    await onOk?.();
     hidePopconfirm();
   };
 
