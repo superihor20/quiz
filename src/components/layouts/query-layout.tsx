@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { QueryClient, QueryClientProvider } from 'react-query';
 
-import { CustomError } from '@/helpers/get-error-message';
 import { useMessage } from '@/hooks/use-message';
 import { ComponentWithChildren } from '@/types/component-with-children';
+import { CustomError } from '@/types/custom-error';
 
 export const QueryLayout: ComponentWithChildren = ({ children }) => {
   const { error } = useMessage();

@@ -1,4 +1,4 @@
-export type CustomError = { message: string; error: string; statusCode: number };
+import { CustomError } from '@/types/custom-error';
 
 export const getErrorMessage = (error: CustomError): string => {
   let message = error?.message || 'Something went wrong';

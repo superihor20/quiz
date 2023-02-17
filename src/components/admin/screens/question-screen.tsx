@@ -96,6 +96,7 @@ export const QuestionScreen = () => {
         name="categoryId"
         control={control}
         render={({ field }) => (
+          //TODO: create custom select component
           <div style={{ position: 'relative', width: '100%' }}>
             <Select
               style={{ width: '100%' }}

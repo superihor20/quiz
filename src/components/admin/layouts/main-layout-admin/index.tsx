@@ -1,9 +1,6 @@
-import { BookOutlined } from '@ant-design/icons';
-import { MenuProps, Layout, Menu, theme } from 'antd';
-import Link from 'next/link';
+import { Layout, Menu, theme } from 'antd';
 import { useRouter } from 'next/router';
 
-import { adminPages } from '@/constants/links';
 import { getBreadcrumbValues } from '@/helpers/get-breadcrumb-values';
 import { ComponentWithChildren } from '@/types/component-with-children';
 import { Breadcrumb } from '@/ui/breadcrumb';
@@ -15,28 +12,16 @@ import {
   FooterStyled,
   LayoutStyled,
 } from './main-layout-admin.styled';
+import { menuItems } from './menu-items';
 
 const { Sider } = Layout;
-
-const menuItems: MenuProps['items'] = [
-  {
-    key: adminPages.questionsCategories,
-    label: <Link href={adminPages.questionsCategories}>Questions Categories</Link>,
-    icon: <BookOutlined />,
-  },
-  {
-    key: adminPages.questions,
-    label: <Link href={adminPages.questions}>Questions</Link>,
-    icon: <BookOutlined />,
-  },
-];
 
 export const MainLayoutAdmin: ComponentWithChildren = ({ children }) => {
   const {
     token: { colorBgContainer },
   } = theme.useToken();
   const router = useRouter();
-  const breadcrumbItems = getBreadcrumbValues(router.pathname).filter(Boolean);
+  const breadcrumbItems = getBreadcrumbValues(router.pathname);
 
   return (
     <LayoutStyled>
