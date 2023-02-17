@@ -6,8 +6,6 @@ import { Button } from '../form/button';
 import { Form } from '../form/form';
 import { FormHelper } from '../form/form-helper';
 import { Input } from '../form/input';
-import { Paper } from '../ui/paper';
-import { Title } from '../ui/title';
 
 import { authApi } from '@/api';
 import type { UserCredentials } from '@/api/types';
@@ -15,6 +13,8 @@ import { pages } from '@/constants/links';
 import { localStorageKeys } from '@/enums/local-storage-keys';
 import { CustomError } from '@/helpers/get-error-message';
 import { useLocalStorage } from '@/hooks/use-local-storage';
+import { Paper } from '@/ui/paper';
+import { Title } from '@/ui/title';
 import { userCredentialsSchema } from '@/zod-schemas/user-credentials.schema';
 
 export const SignIn = () => {

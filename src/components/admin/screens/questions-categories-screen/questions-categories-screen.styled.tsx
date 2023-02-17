@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { LinkStyled } from '../../../ui/gradient-link/gradient-link.styled';
+import { LinkStyled } from '@/ui/gradient-link/gradient-link.styled';
 
 export const NewCategoryLink = styled(LinkStyled)`
   display: block;

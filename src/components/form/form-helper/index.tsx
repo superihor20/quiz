@@ -1,6 +1,6 @@
-import { GradientLink } from '../../ui/gradient-link';
-
 import { DividerStyled, Text } from './form-helper.styled';
+
+import { GradientLink } from '@/ui/gradient-link';
 
 type FormHelper = {
   text: string;
