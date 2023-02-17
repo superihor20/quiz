@@ -46,7 +46,7 @@ export const MainLayoutAdmin: ComponentWithChildren = ({ children }) => {
           <Sider style={{ background: colorBgContainer }} width={220}>
             <Menu
               mode="inline"
-              defaultSelectedKeys={[adminPages.questionsCategories]}
+              defaultSelectedKeys={[router.pathname]}
               style={{ height: '100%' }}
               items={menuItems}
             />
