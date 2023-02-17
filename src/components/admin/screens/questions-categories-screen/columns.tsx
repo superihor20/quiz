@@ -1,10 +1,11 @@
 import type { ColumnsType } from 'antd/es/table';
 import Link from 'next/link';
 
-import { QuestionCategory } from '../../../../api/question-category/question-category.schema';
 import { adminPages } from '../../../../utils/constans/links';
 
 import { ActionColumn } from './components/action-column';
+
+import type { QuestionCategory } from '@/api/types';
 
 export const columns: ColumnsType<QuestionCategory> = [
   {

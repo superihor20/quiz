@@ -4,14 +4,15 @@ import { useRouter } from 'next/router';
 import { Controller, useForm } from 'react-hook-form';
 import { useQuery } from 'react-query';
 
-import { questionCategoryApi } from '../../../api/question-category/question-category.api';
-import { QuestionCategoryInput } from '../../../api/question-category/question-category.schema';
 import { adminPages } from '../../../utils/constans/links';
 import { QueryKeys } from '../../../utils/enums/query-keys';
 import { isItIdFromUrl } from '../../../utils/helpers/is-it-id-from-url';
 import { questionCategorySchema } from '../../../utils/zod-schemas/question-category.schema';
 import { Form } from '../../form/form';
 import { Input } from '../../form/input';
+
+import { questionCategoryApi } from '@/api';
+import { QuestionCategoryInput } from '@/api/types';
 
 export const QuestionCategoryScreen = () => {
   const router = useRouter();

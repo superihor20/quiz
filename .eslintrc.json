@@ -1,6 +1,6 @@
 {
   "parser": "@typescript-eslint/parser",
-  "plugins": ["@typescript-eslint/eslint-plugin"],
+  "plugins": ["@typescript-eslint/eslint-plugin", "import"],
   "extends": [
     "plugin:import/errors",
     "plugin:import/warnings",
@@ -21,6 +21,15 @@
       }
     ],
     "prettier/prettier": ["error", {}, { "usePrettierrc": true }],
-    "import/no-named-as-default": "off"
+    "import/no-named-as-default": "off",
+    "import/no-unresolved": "off"
+  },
+  "settings": {
+    "import/parsers": {
+      "@typescript-eslint/parser": [".ts", ".tsx"]
+    },
+    "import/resolver": {
+      "typescript": {}
+    }
   }
 }
