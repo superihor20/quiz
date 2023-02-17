@@ -1,9 +1,9 @@
 import { useQueryClient } from 'react-query';
 
-import { QueryKeys } from '../../../../../utils/enums/query-keys';
 import { PopConfirm } from '../../../../ui/pop-confirm';
 
 import { questionCategoryApi } from '@/api';
+import { QueryKeys } from '@/enums/query-keys';
 
 type ActionColumnProps = {
   id: number;

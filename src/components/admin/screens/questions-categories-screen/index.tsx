@@ -1,13 +1,12 @@
 import { Table } from 'antd';
 import { useQuery } from 'react-query';
 
-import { QueryKeys } from '../../../../utils/enums/query-keys';
-
 import { columns } from './columns';
 import { NewCategoryLink } from './questions-categories-screen.styled';
 
 import { questionCategoryApi } from '@/api';
 import { adminPages } from '@/constants/links';
+import { QueryKeys } from '@/enums/query-keys';
 
 export const QuestionsCategoriesScreens: React.FC = () => {
   const { data, isLoading } = useQuery([QueryKeys.QUESTIONS_CATEGORIES], () =>

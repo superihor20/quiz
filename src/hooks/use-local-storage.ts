@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import { localStorageKeys } from '../utils/enums/local-storage-keys';
+import { localStorageKeys } from '@/enums/local-storage-keys';
 
 export const useLocalStorage = <S>(
   key: localStorageKeys,

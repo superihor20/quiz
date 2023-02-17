@@ -18,7 +18,8 @@
     "paths": {
       "@/api": ["src/api/index.ts"],
       "@/api/types": ["src/api/index.types.ts"],
-      "@/constants/*": ["src/utils/constants/*.ts"]
+      "@/constants/*": ["src/utils/constants/*.ts"],
+      "@/enums/*": ["src/utils/enums/*.ts"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
