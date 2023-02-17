@@ -26,7 +26,9 @@
       "@/ui/*": ["src/components/ui/*"],
       "@/screens/*": ["src/components/screens/*"],
       "@/layouts/*": ["src/components/layouts/*"],
-      "@/form/*": ["src/components/form/*"]
+      "@/form/*": ["src/components/form/*"],
+      "@/admin/layouts/*": ["src/components/admin/layouts/*"],
+      "@/admin/screens/*": ["src/components/admin/screens/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
