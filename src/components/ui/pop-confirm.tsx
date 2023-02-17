@@ -51,7 +51,7 @@ export const PopConfirm = <TMutationParam,>({
       okButtonProps={{ loading: isLoading }}
       onCancel={handleCancel}
     >
-      <Button htmlType="button" onClick={showPopconfirm} color="red">
+      <Button htmlType="button" onClick={showPopconfirm}>
         {children}
       </Button>
     </Popconfirm>
