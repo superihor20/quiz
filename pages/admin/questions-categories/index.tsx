@@ -1,7 +1,7 @@
 import Head from 'next/head';
 
 import { MainLayoutAdmin } from '@/admin/layouts/main-layout-admin';
-import { QuestionsCategoriesScreens } from '@/admin/screens/questions-categories-screen';
+import { QuestionsCategoriesScreen } from '@/admin/screens/questions-categories-screen';
 
 export default function QuestionsCategoriesPage() {
   return (
@@ -12,7 +12,7 @@ export default function QuestionsCategoriesPage() {
       </Head>
       <main>
         <MainLayoutAdmin>
-          <QuestionsCategoriesScreens />
+          <QuestionsCategoriesScreen />
         </MainLayoutAdmin>
       </main>
     </>

@@ -2,10 +2,10 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { Button, Select } from 'antd';
 import { useRouter } from 'next/router';
 import { Controller, useForm } from 'react-hook-form';
-import { useMutation, useQuery } from 'react-query';
+import { useMutation, useQuery, useQueryClient } from 'react-query';
 
 import { questionApi, questionCategoryApi } from '@/api';
-import type { QuestionInput } from '@/api/types';
+import type { Question, QuestionInput } from '@/api/types';
 import { adminPages } from '@/constants/links';
 import { QueryKeys } from '@/enums/query-keys';
 import { Form } from '@/form/form';
@@ -18,7 +18,9 @@ import { questionSchema } from '@/zod-schemas/question.schema';
 export const QuestionScreen = () => {
   const router = useRouter();
   const { success } = useMessage();
+  const queryClient = useQueryClient();
   const questionId = router.asPath.split('/').pop() || '';
+  const cachedQuestion = queryClient.getQueryData<Question>([QueryKeys.QUESTION, questionId]);
 
   const {
     control,
@@ -27,6 +29,10 @@ export const QuestionScreen = () => {
     setValue,
   } = useForm<QuestionInput>({
     resolver: zodResolver(questionSchema),
+    defaultValues: {
+      categoryId: cachedQuestion?.category.id,
+      question: cachedQuestion?.question,
+    },
   });
 
   const { data: questionsCategories } = useQuery([QueryKeys.QUESTIONS_CATEGORIES], () =>
@@ -45,6 +51,7 @@ export const QuestionScreen = () => {
     onSuccess: ({ id }) => {
       success('Question successfully created');
       router.push(`${adminPages.questions}/${id}`);
+      queryClient.refetchQueries([QueryKeys.QUESTIONS]);
     },
   });
 
@@ -53,6 +60,7 @@ export const QuestionScreen = () => {
     {
       onSuccess: () => {
         success('Question successfully updated');
+        queryClient.refetchQueries([QueryKeys.QUESTIONS]);
       },
     },
   );

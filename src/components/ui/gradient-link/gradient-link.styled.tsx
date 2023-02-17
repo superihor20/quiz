@@ -33,3 +33,10 @@ export const LinkStyled = styled(Link)`
   background-size: 400% 400%;
   animation: ${gradientAnimation} 15s ease infinite;
 `;
+
+export const NewLink = styled(LinkStyled)`
+  display: inline-block;
+  margin-bottom: 0.5em;
+  font-size: 1.5em;
+  line-height: 1.6em;
+`;
