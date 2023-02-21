@@ -10,11 +10,9 @@ export default function SignInPage() {
         <title>Sign in</title>
         <meta name="description" content="Sign in" />
       </Head>
-      <main>
-        <MainLayout>
-          <SignIn />
-        </MainLayout>
-      </main>
+      <MainLayout>
+        <SignIn />
+      </MainLayout>
     </>
   );
 }

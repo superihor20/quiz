@@ -9,9 +9,7 @@ export default function Home() {
         <title>Admin pannel</title>
         <meta name="description" content="Admin pannel" />
       </Head>
-      <main>
-        <MainLayoutAdmin />
-      </main>
+      <MainLayoutAdmin />
     </>
   );
 }

@@ -10,11 +10,9 @@ export default function DashboardPage() {
         <title>Dashboard</title>
         <meta name="description" content="Dashboard" />
       </Head>
-      <main>
-        <MainLayout>
-          <DashboardScreen />
-        </MainLayout>
-      </main>
+      <MainLayout>
+        <DashboardScreen />
+      </MainLayout>
     </>
   );
 }

@@ -10,11 +10,9 @@ export default function SignUpPage() {
         <title>Sign up</title>
         <meta name="description" content="Sign up" />
       </Head>
-      <main>
-        <MainLayout>
-          <SignUp />
-        </MainLayout>
-      </main>
+      <MainLayout>
+        <SignUp />
+      </MainLayout>
     </>
   );
 }

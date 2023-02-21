@@ -10,11 +10,9 @@ export default function QuestionPage() {
         <title>Question</title>
         <meta name="description" content="Question" />
       </Head>
-      <main>
-        <MainLayoutAdmin>
-          <QuestionScreen />
-        </MainLayoutAdmin>
-      </main>
+      <MainLayoutAdmin>
+        <QuestionScreen />
+      </MainLayoutAdmin>
     </>
   );
 }

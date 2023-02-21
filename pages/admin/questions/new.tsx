@@ -10,11 +10,9 @@ export default function NewQuestionPage() {
         <title>New question</title>
         <meta name="description" content="New question" />
       </Head>
-      <main>
-        <MainLayoutAdmin>
-          <QuestionScreen />
-        </MainLayoutAdmin>
-      </main>
+      <MainLayoutAdmin>
+        <QuestionScreen />
+      </MainLayoutAdmin>
     </>
   );
 }

@@ -10,11 +10,9 @@ export default function SettingsPage() {
         <title>Settings</title>
         <meta name="description" content="Settings" />
       </Head>
-      <main>
-        <MainLayout>
-          <SettingsScreen />
-        </MainLayout>
-      </main>
+      <MainLayout>
+        <SettingsScreen />
+      </MainLayout>
     </>
   );
 }

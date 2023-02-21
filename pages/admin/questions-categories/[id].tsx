@@ -10,11 +10,9 @@ export default function QuestionCategoryPage() {
         <title>Question category</title>
         <meta name="description" content="Question category" />
       </Head>
-      <main>
-        <MainLayoutAdmin>
-          <QuestionCategoryScreen />
-        </MainLayoutAdmin>
-      </main>
+      <MainLayoutAdmin>
+        <QuestionCategoryScreen />
+      </MainLayoutAdmin>
     </>
   );
 }

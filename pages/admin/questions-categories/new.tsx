@@ -10,11 +10,9 @@ export default function NewQuestionCategoryPage() {
         <title>New question category</title>
         <meta name="description" content="New question category" />
       </Head>
-      <main>
-        <MainLayoutAdmin>
-          <QuestionCategoryScreen />
-        </MainLayoutAdmin>
-      </main>
+      <MainLayoutAdmin>
+        <QuestionCategoryScreen />
+      </MainLayoutAdmin>
     </>
   );
 }
