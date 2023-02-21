@@ -11,7 +11,6 @@ import { Form } from '@/form/form';
 import { FormHelper } from '@/form/form-helper';
 import { Input } from '@/form/input';
 import { useLocalStorage } from '@/hooks/use-local-storage';
-import { CustomError } from '@/types/custom-error';
 import { Paper } from '@/ui/paper';
 import { Title } from '@/ui/title';
 import { userCredentialsSchema } from '@/zod-schemas/user-credentials.schema';
@@ -31,7 +30,7 @@ export const SignIn = () => {
       setAccessToken(accessToken);
     },
     onError: (e) => {
-      setError('email', { message: (e as CustomError).message });
+      setError('email', { message: e as string });
     },
   });
 

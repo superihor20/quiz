@@ -3,13 +3,12 @@ import { QueryClient, QueryClientProvider } from 'react-query';
 
 import { useMessage } from '@/hooks/use-message';
 import { ComponentWithChildren } from '@/types/component-with-children';
-import { CustomError } from '@/types/custom-error';
 
 export const QueryLayout: ComponentWithChildren = ({ children }) => {
   const { error } = useMessage();
 
-  const showError = (data: unknown) => {
-    error((data as CustomError).message);
+  const showError = (message: unknown) => {
+    error(message as string);
   };
 
   const [queryClient] = useState(
