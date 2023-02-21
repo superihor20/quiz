@@ -1,7 +1,9 @@
 import { ComponentWithChildren } from '@/types/component-with-children';
 
-import { PaperStyled } from './paper.styled';
+import { PaperStyled, PaperStyledProps } from './paper.styled';
 
-export const Paper: ComponentWithChildren = ({ children }) => {
-  return <PaperStyled>{children}</PaperStyled>;
+export type PaperProps = ComponentWithChildren<PaperStyledProps>;
+
+export const Paper: PaperProps = ({ children, ...props }) => {
+  return <PaperStyled {...props}>{children}</PaperStyled>;
 };
