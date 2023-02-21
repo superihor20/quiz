@@ -4,6 +4,7 @@ export const adminBaseUrl = `/admin`;
 export const pages = {
   signIn: `/sign-in`,
   signUp: `/sign-up`,
+  dashboard: '/dashboard',
 } as const;
 
 export const adminPages = {

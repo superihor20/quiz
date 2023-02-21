@@ -1,10 +1,10 @@
-import { Paper } from '@/ui/paper';
+import { UserPagesLayout } from '@/layouts/user-pages-layout';
 import { Title } from '@/ui/title';
 
 export const DashboardScreen = () => {
   return (
-    <Paper maxWidth={960} bg="transparent">
+    <UserPagesLayout>
       <Title>Welcome back</Title>
-    </Paper>
+    </UserPagesLayout>
   );
 };
