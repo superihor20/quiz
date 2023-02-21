@@ -1,20 +1,20 @@
 import { ComponentWithChildren } from '@/types/component-with-children';
 import { Header } from '@/ui/header';
-import { PaperForUserPages } from '@/ui/paper';
+import { PaperForUserPage } from '@/ui/paper';
 import { Title } from '@/ui/title';
 
-export type UserPagesLayoutProps = ComponentWithChildren<{
+export type UserPageLayoutProps = ComponentWithChildren<{
   title?: string;
 }>;
 
-export const UserPagesLayout: UserPagesLayoutProps = ({ children, title }) => {
+export const UserPageLayout: UserPageLayoutProps = ({ children, title }) => {
   return (
     <>
       <Header />
-      <PaperForUserPages>
+      <PaperForUserPage>
         {title && <Title>{title}</Title>}
         {children}
-      </PaperForUserPages>
+      </PaperForUserPage>
     </>
   );
 };

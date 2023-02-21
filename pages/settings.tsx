@@ -1,7 +1,7 @@
 import Head from 'next/head';
 
 import { MainLayout } from '@/layouts/main-layout';
-import { SettingsdScreen } from '@/screens/settings';
+import { SettingsScreen } from '@/screens/settings';
 
 export default function SettingsPage() {
   return (
@@ -12,7 +12,7 @@ export default function SettingsPage() {
       </Head>
       <main>
         <MainLayout>
-          <SettingsdScreen />
+          <SettingsScreen />
         </MainLayout>
       </main>
     </>

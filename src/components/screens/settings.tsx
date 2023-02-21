@@ -1,5 +1,5 @@
-import { UserPagesLayout } from '@/layouts/user-pages-layout';
+import { UserPageLayout } from '@/layouts/user-pages-layout';
 
-export const SettingsdScreen = () => {
-  return <UserPagesLayout title="Settings" />;
+export const SettingsScreen = () => {
+  return <UserPageLayout title="Settings" />;
 };

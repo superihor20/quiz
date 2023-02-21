@@ -1,5 +1,5 @@
-import { UserPagesLayout } from '@/layouts/user-pages-layout';
+import { UserPageLayout } from '@/layouts/user-pages-layout';
 
 export const DashboardScreen = () => {
-  return <UserPagesLayout title="Welcome back" />;
+  return <UserPageLayout title="Welcome back" />;
 };
