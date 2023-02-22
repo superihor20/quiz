@@ -38,7 +38,8 @@
     ],
     "prettier/prettier": ["error", {}, { "usePrettierrc": true }],
     "import/no-named-as-default": "off",
-    "import/no-unresolved": "off"
+    "import/no-unresolved": "off",
+    "react/display-name": "off"
   },
   "settings": {
     "import/parsers": {
