@@ -1,4 +1,5 @@
 import { zodResolver } from '@hookform/resolvers/zod';
+import { useRouter } from 'next/router';
 import { Controller, useForm } from 'react-hook-form';
 import { useMutation } from 'react-query';
 
@@ -16,6 +17,7 @@ import { Title } from '@/ui/title';
 import { userCredentialsSchema } from '@/zod-schemas/user-credentials.schema';
 
 export const SignIn = () => {
+  const router = useRouter();
   const [, setAccessToken] = useLocalStorage<null | string>(localStorageKeys.ACCESS_TOKEN, null);
   const {
     control,
@@ -25,9 +27,11 @@ export const SignIn = () => {
   } = useForm<UserCredentials>({
     resolver: zodResolver(userCredentialsSchema),
   });
+
   const mutation = useMutation(authApi.signIn, {
     onSuccess: ({ accessToken }) => {
       setAccessToken(accessToken);
+      router.push(pages.dashboard);
     },
     onError: (e) => {
       setError('email', { message: e as string });

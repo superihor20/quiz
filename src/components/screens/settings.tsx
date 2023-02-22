@@ -8,6 +8,7 @@ import { QueryKeys } from '@/enums/query-keys';
 import { Button } from '@/form/button';
 import { Form } from '@/form/form';
 import { Input } from '@/form/input';
+import { useMessage } from '@/hooks/use-message';
 import { UserPageLayout } from '@/layouts/user-pages-layout';
 import { Paper } from '@/ui/paper';
 import { userSchema } from '@/zod-schemas/user-schema';
@@ -15,6 +16,7 @@ import { userSchema } from '@/zod-schemas/user-schema';
 export const SettingsScreen = () => {
   const queryClient = useQueryClient();
   const user = queryClient.getQueryData<User>([QueryKeys.ME]) as User;
+  const { success } = useMessage();
 
   const {
     control,
@@ -32,6 +34,7 @@ export const SettingsScreen = () => {
   const mutation = useMutation((input: UserInput) => userApi.update(user.id, input), {
     onSuccess: () => {
       queryClient.refetchQueries([QueryKeys.ME]);
+      success('Information updated successfully');
     },
     onError: (e) => {
       setError('email', { message: e as string });
