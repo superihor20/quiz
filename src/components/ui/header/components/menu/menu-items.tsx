@@ -1,4 +1,9 @@
-import { DashboardOutlined, LogoutOutlined, SettingOutlined } from '@ant-design/icons';
+import {
+  DashboardOutlined,
+  LogoutOutlined,
+  QuestionOutlined,
+  SettingOutlined,
+} from '@ant-design/icons';
 import { MenuProps } from 'antd';
 import Link from 'next/link';
 
@@ -8,17 +13,22 @@ import { Logout } from '../logout';
 
 export const items: MenuProps['items'] = [
   {
-    key: '1',
+    key: 'Dashboard',
     label: <Link href={pages.dashboard}>Dashboard</Link>,
     icon: <DashboardOutlined />,
   },
   {
-    key: '2',
+    key: 'Questions',
+    label: <Link href={pages.questions}>Questions</Link>,
+    icon: <QuestionOutlined />,
+  },
+  {
+    key: 'Settings',
     label: <Link href={pages.settings}>Settings</Link>,
     icon: <SettingOutlined />,
   },
   {
-    key: '3',
+    key: 'Logout',
     label: <Logout />,
     icon: <LogoutOutlined />,
   },

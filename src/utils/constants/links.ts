@@ -6,6 +6,7 @@ export const pages = {
   signUp: `/sign-up`,
   dashboard: '/dashboard',
   settings: '/settings',
+  questions: '/questions',
 } as const;
 
 export const adminPages = {
