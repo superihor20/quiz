@@ -3,15 +3,13 @@ import { useEffect, useRef, useState } from 'react';
 
 import { ComponentWithChildren } from '@/types/component-with-children';
 
-import { CollapseOuterWrapper } from './collapse.styled';
+import { Action, CollapseOuterWrapper, HeaderRightPart } from './collapse.styled';
 import { Content } from './components/content';
 import { Header } from './components/header';
 
 type CollapseProps = ComponentWithChildren<{
   title: string;
-  headerAdditionalContent?: {
-    content: React.ReactNode;
-  };
+  headerAdditionalContent?: React.ReactNode;
 }>;
 
 export const Collapse: CollapseProps = ({ title, headerAdditionalContent, children }) => {
@@ -32,8 +30,10 @@ export const Collapse: CollapseProps = ({ title, headerAdditionalContent, childr
     <CollapseOuterWrapper>
       <Header onClick={toggleCollapse}>
         <Typography.Text>{title}</Typography.Text>
-        {headerAdditionalContent && headerAdditionalContent.content}
-        <Typography.Text>{isOpened ? '-' : '+'}</Typography.Text>
+        <HeaderRightPart>
+          {headerAdditionalContent && headerAdditionalContent}
+          <Action>{isOpened ? '-' : '+'}</Action>
+        </HeaderRightPart>
       </Header>
       <Content height={isOpened ? contentHeight.current : 0} ref={contentRef}>
         {children}

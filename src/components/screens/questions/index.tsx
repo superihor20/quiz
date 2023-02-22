@@ -1,5 +1,6 @@
 import { UserPageLayout } from '@/layouts/user-pages-layout';
 import { Collapse } from '@/ui/collapse';
+import { Progress } from '@/ui/progress';
 
 import { QuestionsScreenWrapper } from './questions.styled';
 
@@ -19,7 +20,11 @@ export const QuestionsScreen = () => {
     <UserPageLayout title="Questions">
       <QuestionsScreenWrapper>
         {r.map((r1) => (
-          <Collapse title={r1.categoryName} key={r1.categoryName}>
+          <Collapse
+            title={r1.categoryName}
+            key={r1.categoryName}
+            headerAdditionalContent={<Progress percent={59} />}
+          >
             {r1.questions.map((q) => (
               <p key={q.question}>{q.question}</p>
             ))}
