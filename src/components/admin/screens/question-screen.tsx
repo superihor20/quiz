@@ -84,7 +84,7 @@ export const QuestionScreen = () => {
   };
 
   return (
-    <Form onSubmit={handleSubmitHook((data) => handleSubmit(data))}>
+    <Form onSubmit={handleSubmitHook(handleSubmit)}>
       <Controller
         name="question"
         control={control}

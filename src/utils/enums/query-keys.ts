@@ -3,4 +3,5 @@ export enum QueryKeys {
   QUESTIONS_CATEGORIES = 'questions-categories',
   QUESTION = 'question',
   QUESTIONS = 'questions',
+  ME = 'me',
 }

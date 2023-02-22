@@ -1,8 +1,11 @@
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
+import { useQuery } from 'react-query';
 
-import { baseUrl, pages } from '@/constants/links';
+import { userApi } from '@/api';
+import { pages } from '@/constants/links';
 import { localStorageKeys } from '@/enums/local-storage-keys';
+import { QueryKeys } from '@/enums/query-keys';
 import { useLocalStorage } from '@/hooks/use-local-storage';
 import { ComponentWithChildren } from '@/types/component-with-children';
 
@@ -15,19 +18,30 @@ const checkRouteAvailability = (url: string, accessToken: string | null | undefi
 export const AuthLayout: ComponentWithChildren = ({ children }) => {
   const router = useRouter();
   const [isServer, setIsServer] = useState(true);
-  const [accessToken] = useLocalStorage<string | null | undefined>(localStorageKeys.ACCESS_TOKEN);
+  const [accessToken, setAccessToken] = useLocalStorage<string | null | undefined>(
+    localStorageKeys.ACCESS_TOKEN,
+  );
+
+  const { isLoading } = useQuery([QueryKeys.ME], userApi.me, {
+    retry: false,
+    enabled: !!accessToken,
+    onError: () => {
+      setAccessToken(null);
+      router.push(pages.signIn);
+    },
+  });
 
   useEffect(() => {
     setIsServer(false);
   }, []);
 
   useEffect(() => {
-    if (checkRouteAvailability(`${baseUrl}${router.pathname}`, accessToken)) {
+    if (checkRouteAvailability(`${router.pathname}`, accessToken)) {
       router.push(pages.signIn);
     }
   }, [accessToken]);
 
-  if (isServer || checkRouteAvailability(`${baseUrl}${router.pathname}`, accessToken)) {
+  if (isLoading || isServer || checkRouteAvailability(`${router.pathname}`, accessToken)) {
     return null;
   }
 

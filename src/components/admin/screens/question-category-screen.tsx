@@ -84,7 +84,7 @@ export const QuestionCategoryScreen = () => {
   };
 
   return (
-    <Form onSubmit={handleSubmitHook((data) => handleSubmit(data))}>
+    <Form onSubmit={handleSubmitHook(handleSubmit)}>
       <Controller
         name="name"
         control={control}

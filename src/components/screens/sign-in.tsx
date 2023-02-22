@@ -41,7 +41,7 @@ export const SignIn = () => {
   return (
     <Paper>
       <Title align="center">Sign in</Title>
-      <Form onSubmit={handleSubmitHook((data) => handleSubmit(data))}>
+      <Form onSubmit={handleSubmitHook(handleSubmit)}>
         <Controller
           name="email"
           control={control}

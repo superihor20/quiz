@@ -6,3 +6,8 @@ export const authEndpoints = {
 export const questionsCategoriesEndpoint = '/question-category';
 
 export const questionEndpoint = '/question';
+
+export const userEndpoints = {
+  main: '/user',
+  me: '/me',
+} as const;
