@@ -11,7 +11,7 @@ export const ContentOuterWrapper = styled.div<ContentOuterWrapperProps>`
 `;
 
 export const ContentInnerWrapper = styled.div`
-  padding: 0 1rem 1rem 1rem;
+  padding: 1rem;
   max-height: 40vh;
   overflow: auto;
 `;
