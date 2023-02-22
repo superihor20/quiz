@@ -11,7 +11,14 @@ const { darkAlgorithm } = theme;
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <ConfigProvider theme={{ algorithm: darkAlgorithm }}>
+    <ConfigProvider
+      theme={{
+        algorithm: darkAlgorithm,
+        token: {
+          colorPrimary: '#eb2f96',
+        },
+      }}
+    >
       <QueryLayout>
         <AuthLayout>
           <Component {...pageProps} />
