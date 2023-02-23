@@ -2,7 +2,7 @@ import { useQuery } from 'react-query';
 
 import { questionApi } from '@/api';
 import { QueryKeys } from '@/enums/query-keys';
-import { groupByNestedKey } from '@/helpers/group-by';
+import { groupByNestedKey } from '@/helpers/group-by-nested-key';
 import { UserPageLayout } from '@/layouts/user-pages-layout';
 import { Collapse } from '@/ui/collapse';
 import { Progress } from '@/ui/progress';
