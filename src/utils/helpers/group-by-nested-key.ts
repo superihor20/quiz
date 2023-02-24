@@ -1,4 +1,4 @@
-type ValueOf<T> = T[keyof T];
+import { ValueOf } from '@/types/value-of';
 
 export function groupByNestedKey<T extends Record<string, any>>(
   arr: T[],
