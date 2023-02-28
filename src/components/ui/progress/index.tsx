@@ -20,6 +20,7 @@ export const Progress: ProgressProps = ({ percent }) => {
           '80%': geekblue[6],
           '100%': magenta[5],
         }}
+        prefixCls="custom"
       />
     </ProgressWrapper>
   );

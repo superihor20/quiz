@@ -4,6 +4,7 @@ import { markApi } from 'src/api/mark/mark.api';
 import { questionApi } from '@/api';
 import { Mark } from '@/api/types';
 import { QueryKeys } from '@/enums/query-keys';
+import { getPercentOfGavedMarks } from '@/helpers/get-percent-of-gaved-marks';
 import { groupByNestedKey } from '@/helpers/group-by-nested-key';
 import { UserPageLayout } from '@/layouts/user-pages-layout';
 import { QuestionsWithMark, QuestionWithMark } from '@/types/question-with-mark';
@@ -49,7 +50,7 @@ export const QuestionsScreen = () => {
             <Collapse
               title={categroryName}
               key={categroryName}
-              headerAdditionalContent={<Progress percent={questions.length} />}
+              headerAdditionalContent={<Progress percent={getPercentOfGavedMarks(questions)} />}
             >
               <QuestionsList questionsWithMarks={questions} />
             </Collapse>
