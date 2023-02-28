@@ -1,12 +1,18 @@
 import { Radio, Typography } from 'antd';
 
+import { QuestionWithMark } from '@/types/question-with-mark';
+
 import { TextWrapper } from './question-modal-content.styled';
 
 import type { RadioChangeEvent } from 'antd';
 
 const marks = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
-export const QuestionModalContent = () => {
+type QuestionModalContentProps = React.FC<{
+  question: QuestionWithMark;
+}>;
+
+export const QuestionModalContent: QuestionModalContentProps = ({ question: { mark } }) => {
   const onChange = (e: RadioChangeEvent) => {
     console.log(`radio checked:${e.target.value}`);
   };
@@ -27,7 +33,7 @@ export const QuestionModalContent = () => {
           person how it works.
         </Typography.Text>
       </TextWrapper>
-      <Radio.Group onChange={onChange} defaultValue={2}>
+      <Radio.Group onChange={onChange} defaultValue={mark?.mark}>
         {marks.map((mark) => (
           <Radio.Button value={mark} key={mark}>
             {mark}

@@ -1,20 +1,18 @@
+import { QuestionsWithMark } from '@/types/question-with-mark';
+
 import { QuestionItem } from '../question-item';
 
 import { QuestionsWrapper } from './questions-list.styled';
 
 type QuestionsListProps = React.FC<{
-  questions: {
-    id: number;
-    question: string;
-    mark: null | number;
-  }[];
+  questionsWithMarks: QuestionsWithMark;
 }>;
 
-export const QuestionsList: QuestionsListProps = ({ questions }) => {
+export const QuestionsList: QuestionsListProps = ({ questionsWithMarks }) => {
   return (
     <QuestionsWrapper>
-      {questions.map((question) => (
-        <QuestionItem question={question} key={question.id} />
+      {questionsWithMarks.map((questionWithMark) => (
+        <QuestionItem questionWithMark={questionWithMark} key={questionWithMark.id} />
       ))}
     </QuestionsWrapper>
   );
