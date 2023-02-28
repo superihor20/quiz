@@ -9,7 +9,7 @@ type ModalProps = ComponentWithChildren<{
   title: string;
 }>;
 
-export const Modasl: ModalProps = ({ buttonText, title, children }) => {
+export const Modal: ModalProps = ({ buttonText, title, children }) => {
   const [open, setOpen] = useState(false);
 
   const showModal = () => {

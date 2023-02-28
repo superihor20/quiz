@@ -1,6 +1,8 @@
 import { Typography } from 'antd';
 
-import { Button } from '@/form/button';
+import { Modal } from '@/ui/modal';
+
+import { QuestionModalContent } from '../question-modal-content';
 
 import { QuestionRightPart, QuestionWrapper } from './question-item.styled';
 
@@ -20,7 +22,9 @@ export const QuestionItem: QuestionItemProps = ({ question: { id, question, mark
       <Typography.Text>{question}</Typography.Text>
       <QuestionRightPart>
         <Typography.Text>{mark ?? 'No mark yet'}</Typography.Text>
-        <Button>Set mark</Button>
+        <Modal buttonText={mark ? 'Change mark' : 'Set mark'} title={question}>
+          <QuestionModalContent />
+        </Modal>
       </QuestionRightPart>
     </QuestionWrapper>
   );
