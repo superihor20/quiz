@@ -1,4 +1,5 @@
 import { useQuery } from 'react-query';
+import { markApi } from 'src/api/mark/mark.api';
 
 import { questionApi } from '@/api';
 import { QueryKeys } from '@/enums/query-keys';
@@ -30,6 +31,7 @@ const q = [
 
 export const QuestionsScreen = () => {
   const { data: questions = [] } = useQuery([QueryKeys.QUESTIONS], questionApi.getAll);
+  const { data: marks = [] } = useQuery([QueryKeys.MY_MARKS], markApi.my);
   const groupedQuestions = groupByNestedKey(questions, 'category.name');
 
   return (

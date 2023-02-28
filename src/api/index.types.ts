@@ -8,3 +8,5 @@ export type {
 export type { Question, QuestionInput } from './question/question.schema';
 
 export type { User, UserInput } from './user/user.schema';
+
+export type { MarkCreateInput, MarkUpdateInput, Mark, Marks } from './mark/mark.schema';

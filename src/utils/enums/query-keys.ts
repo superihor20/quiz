@@ -4,4 +4,5 @@ export enum QueryKeys {
   QUESTION = 'question',
   QUESTIONS = 'questions',
   ME = 'me',
+  MY_MARKS = 'my-marks',
 }
