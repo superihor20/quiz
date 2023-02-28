@@ -11,3 +11,8 @@ export const userEndpoints = {
   main: '/user',
   me: '/me',
 } as const;
+
+export const markEndpoints = {
+  main: '/mark',
+  my: '/my',
+} as const;
