@@ -18,7 +18,7 @@ class MarkApi {
   };
 
   update = async (input: MarkUpdateInput): Promise<Mark> => {
-    return this.#requestInstance.patch(markEndpoints.main, input);
+    return this.#requestInstance.patch(`${markEndpoints.main}/${input.id}`, { mark: input.mark });
   };
 
   my = async (): Promise<Marks> => {

@@ -7,6 +7,7 @@ export type MarkCreateInput = {
 };
 
 export type MarkUpdateInput = {
+  id: number;
   mark: number;
 };
 

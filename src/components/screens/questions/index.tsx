@@ -14,8 +14,15 @@ import { QuestionsList } from '@/ui/questions/questions-list';
 import { QuestionsScreenWrapper } from './questions.styled';
 
 export const QuestionsScreen = () => {
-  const { data: questions = [] } = useQuery([QueryKeys.QUESTIONS], questionApi.getAll);
-  const { data: marks = [] } = useQuery([QueryKeys.MY_MARKS], markApi.my);
+  const { data: questions = [], isLoading: isLoadingQuestions } = useQuery(
+    [QueryKeys.QUESTIONS],
+    questionApi.getAll,
+  );
+  const { data: marks = [], isLoading: isLoadingMarks } = useQuery(
+    [QueryKeys.MY_MARKS],
+    markApi.my,
+  );
+
   const dictionaryOfMarks = marks.reduce((dictionary, curr) => {
     dictionary[curr.question.id] = curr;
 
@@ -36,15 +43,17 @@ export const QuestionsScreen = () => {
   return (
     <UserPageLayout title="Questions">
       <QuestionsScreenWrapper>
-        {Object.entries(groupedQuestions).map(([categroryName, questions]) => (
-          <Collapse
-            title={categroryName}
-            key={categroryName}
-            headerAdditionalContent={<Progress percent={questions.length} />}
-          >
-            <QuestionsList questionsWithMarks={questions} />
-          </Collapse>
-        ))}
+        {!isLoadingQuestions &&
+          !isLoadingMarks &&
+          Object.entries(groupedQuestions).map(([categroryName, questions]) => (
+            <Collapse
+              title={categroryName}
+              key={categroryName}
+              headerAdditionalContent={<Progress percent={questions.length} />}
+            >
+              <QuestionsList questionsWithMarks={questions} />
+            </Collapse>
+          ))}
       </QuestionsScreenWrapper>
     </UserPageLayout>
   );

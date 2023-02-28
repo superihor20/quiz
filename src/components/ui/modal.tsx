@@ -7,9 +7,11 @@ import { ComponentWithChildren } from '@/types/component-with-children';
 type ModalProps = ComponentWithChildren<{
   buttonText: string;
   title: string;
+  onClose?: () => Promise<void> | void;
+  onSubmit?: () => Promise<void> | void;
 }>;
 
-export const Modal: ModalProps = ({ buttonText, title, children }) => {
+export const Modal: ModalProps = ({ buttonText, title, onClose, onSubmit, children }) => {
   const [open, setOpen] = useState(false);
 
   const showModal = () => {
@@ -20,11 +22,13 @@ export const Modal: ModalProps = ({ buttonText, title, children }) => {
     setOpen(false);
   };
 
-  const handleOk = () => {
-    showModal();
+  const handleOk = async () => {
+    await onSubmit?.();
+    closeModal();
   };
 
-  const handleClose = () => {
+  const handleClose = async () => {
+    await onClose?.();
     closeModal();
   };
 
