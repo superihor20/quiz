@@ -1,7 +1,6 @@
 import { useQuery } from 'react-query';
-import { markApi } from 'src/api/mark/mark.api';
 
-import { questionApi } from '@/api';
+import { markApi, questionApi } from '@/api';
 import { Mark } from '@/api/types';
 import { QueryKeys } from '@/enums/query-keys';
 import { getPercentOfGavedMarks } from '@/helpers/get-percent-of-gaved-marks';
