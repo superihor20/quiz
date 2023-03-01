@@ -19,6 +19,7 @@ export default class CustomDocument extends Document<{ styleTags: ReactElement[]
         <Head>
           {this.props.styleTags}
           <meta httpEquiv="Content-Security-Policy" content="upgrade-insecure-requests"></meta>
+          <meta httpEquiv="referrer" content="unsafe-url"></meta>
         </Head>
         <body>
           <Main />
