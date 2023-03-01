@@ -6,19 +6,19 @@ import { useMutation } from 'react-query';
 import { authApi } from '@/api';
 import type { UserCredentials } from '@/api/types';
 import { pages } from '@/constants/links';
-import { localStorageKeys } from '@/enums/local-storage-keys';
 import { Button } from '@/form/button';
 import { Form } from '@/form/form';
 import { FormHelper } from '@/form/form-helper';
 import { Input } from '@/form/input';
-import { useLocalStorage } from '@/hooks/use-local-storage';
+import { getStoreField } from '@/stores/selector';
+import { userStore } from '@/stores/user/user.store';
 import { Paper } from '@/ui/paper';
 import { Title } from '@/ui/title';
 import { userCredentialsSchema } from '@/zod-schemas/user-credentials.schema';
 
 export const SignUp = () => {
   const router = useRouter();
-  const [, setAccessToken] = useLocalStorage<null | string>(localStorageKeys.ACCESS_TOKEN, null);
+  const setAccessToken = userStore(getStoreField('setAccessToken'));
   const {
     control,
     handleSubmit: handleSubmitHook,

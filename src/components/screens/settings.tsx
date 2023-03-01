@@ -10,12 +10,14 @@ import { Form } from '@/form/form';
 import { Input } from '@/form/input';
 import { useMessage } from '@/hooks/use-message';
 import { UserPageLayout } from '@/layouts/user-pages-layout';
+import { getStoreField } from '@/stores/selector';
+import { userStore } from '@/stores/user/user.store';
 import { Paper } from '@/ui/paper';
 import { userSchema } from '@/zod-schemas/user-schema';
 
 export const SettingsScreen = () => {
   const queryClient = useQueryClient();
-  const user = queryClient.getQueryData<User>([QueryKeys.ME]) as User;
+  const user = userStore(getStoreField('user')) as User;
   const { success } = useMessage();
 
   const {
@@ -32,8 +34,8 @@ export const SettingsScreen = () => {
   });
 
   const mutation = useMutation((input: UserInput) => userApi.update(user.id, input), {
-    onSuccess: () => {
-      queryClient.refetchQueries([QueryKeys.ME]);
+    onSuccess: (user) => {
+      queryClient.setQueryData(QueryKeys.ME, () => user);
       success('Information updated successfully');
     },
     onError: (e) => {

@@ -4,9 +4,9 @@ import { useQuery } from 'react-query';
 
 import { userApi } from '@/api';
 import { pages } from '@/constants/links';
-import { localStorageKeys } from '@/enums/local-storage-keys';
 import { QueryKeys } from '@/enums/query-keys';
-import { useLocalStorage } from '@/hooks/use-local-storage';
+import { getMultipleStoreFields } from '@/stores/selector';
+import { userStore } from '@/stores/user/user.store';
 import { ComponentWithChildren } from '@/types/component-with-children';
 
 const publicRoutes = new Set<string>([pages.signIn, pages.signUp]);
@@ -18,15 +18,19 @@ const checkRouteAvailability = (url: string, accessToken: string | null | undefi
 export const AuthLayout: ComponentWithChildren = ({ children }) => {
   const router = useRouter();
   const [isServer, setIsServer] = useState(true);
-  const [accessToken, setAccessToken] = useLocalStorage<string | null | undefined>(
-    localStorageKeys.ACCESS_TOKEN,
+  const { accessToken, setUser, setAccessToken } = userStore(
+    getMultipleStoreFields(['accessToken', 'setAccessToken', 'setUser']),
   );
 
   const { isLoading } = useQuery([QueryKeys.ME], userApi.me, {
     retry: false,
     enabled: !!accessToken,
+    onSuccess: (user) => {
+      setUser(user);
+    },
     onError: () => {
       setAccessToken(null);
+      setUser(null);
       router.push(pages.signIn);
     },
   });

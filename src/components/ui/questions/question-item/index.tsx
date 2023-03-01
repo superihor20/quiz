@@ -6,6 +6,8 @@ import { markApi } from '@/api';
 import { Mark, Marks, User } from '@/api/types';
 import { QueryKeys } from '@/enums/query-keys';
 import { useMessage } from '@/hooks/use-message';
+import { getStoreField } from '@/stores/selector';
+import { userStore } from '@/stores/user/user.store';
 import { QuestionWithMark } from '@/types/question-with-mark';
 import { Modal } from '@/ui/modal';
 
@@ -22,7 +24,7 @@ type QuestionItemProps = React.FC<{
 export const QuestionItem: QuestionItemProps = ({ questionWithMark }) => {
   const { success } = useMessage();
   const queryClient = useQueryClient();
-  const user = queryClient.getQueryData<User>([QueryKeys.ME]) as User;
+  const user = userStore(getStoreField('user')) as User;
   const [mark, setMark] = useState(questionWithMark.mark?.mark ?? null);
 
   const updateMyMarksOnCreateMutation = (newMark: Mark) => {
