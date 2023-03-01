@@ -6,7 +6,7 @@ import { QueryKeys } from '@/enums/query-keys';
 import { getPercentOfGavedMarks } from '@/helpers/get-percent-of-gaved-marks';
 import { groupByNestedKey } from '@/helpers/group-by-nested-key';
 import { UserPageLayout } from '@/layouts/user-pages-layout';
-import { QuestionsWithMark, QuestionWithMark } from '@/types/question-with-mark';
+import { QuestionsWithMark } from '@/types/question-with-mark';
 import { Collapse } from '@/ui/collapse';
 import { Progress } from '@/ui/progress';
 import { QuestionsList } from '@/ui/questions/questions-list';
@@ -28,16 +28,10 @@ export const QuestionsScreen = () => {
 
     return dictionary;
   }, {} as Record<number, Mark>);
-  const normalizedQuestions: QuestionsWithMark = questions.map((question) => {
-    const normalizedQuestion: QuestionWithMark = {
-      id: question.id,
-      question: question.question,
-      category: question.category,
-      mark: dictionaryOfMarks[question.id] ?? null,
-    };
-
-    return normalizedQuestion;
-  });
+  const normalizedQuestions: QuestionsWithMark = questions.map((question) => ({
+    ...question,
+    mark: dictionaryOfMarks[question.id] ?? null,
+  }));
   const groupedQuestions = groupByNestedKey(normalizedQuestions, 'category.name');
 
   return (

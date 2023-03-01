@@ -27,9 +27,9 @@ export const QuestionModalContent: QuestionModalContentProps = ({ mark, onChange
         </Typography.Text>
       </TextWrapper>
       <Radio.Group onChange={onChange} defaultValue={mark} value={mark}>
-        {marks.map((mark) => (
-          <Radio.Button value={mark} key={mark}>
-            {mark}
+        {marks.map((currentMark) => (
+          <Radio.Button value={currentMark} key={currentMark}>
+            {currentMark}
           </Radio.Button>
         ))}
       </Radio.Group>

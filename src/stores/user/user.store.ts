@@ -19,14 +19,14 @@ export const userStore = create(
       user: null,
       setAccessToken: (accessToken) =>
         set(
-          produce((state) => {
-            state.accessToken = accessToken;
+          produce((store) => {
+            store.accessToken = accessToken;
           }),
         ),
       setUser: (user) =>
         set(
-          produce((state) => {
-            state.user = user;
+          produce((store) => {
+            store.user = user;
           }),
         ),
     }),
