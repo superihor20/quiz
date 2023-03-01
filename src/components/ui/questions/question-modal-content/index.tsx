@@ -15,12 +15,10 @@ export const QuestionModalContent: QuestionModalContentProps = ({ mark, onChange
   return (
     <>
       <TextWrapper>
-        <Typography.Text>
-          0 - you don&apos;t even hear about this feature | library | framework;
-        </Typography.Text>
+        <Typography.Text>0 - you don&apos;t even hear about this;</Typography.Text>
         <br />
         <Typography.Text>
-          5 - you have read about it and know how to use it, work with it;
+          5 - you read about it but it&apos;s hard to use or explain to anyone about it;
         </Typography.Text>
         <br />
         <Typography.Text>
