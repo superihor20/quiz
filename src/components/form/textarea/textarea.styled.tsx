@@ -2,12 +2,12 @@ import { grey, red } from '@ant-design/colors';
 import { Input } from 'antd';
 import styled from 'styled-components';
 
-export const InputWrapper = styled.div`
+export const TextareaWrapper = styled.div`
   position: relative;
   width: 100%;
 `;
 
-export const InputStyled = styled(Input)`
+export const TextareaStyled = styled(Input.TextArea)`
   background: ${grey[6]};
   border: 1px solid transparent;
   color: ${grey[0]};

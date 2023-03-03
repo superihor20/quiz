@@ -1,7 +1,9 @@
 import { InputProps as InputAntdProps } from 'antd';
 import { ControllerRenderProps, FieldPath, FieldValues } from 'react-hook-form';
 
-import { ErrorText, InputStyled, InputWrapper } from './input.styled';
+import { ErrorText } from '../error-text';
+
+import { InputStyled, InputWrapper } from './input.styled';
 
 type InputProps<TForm extends FieldValues, TName extends FieldPath<TForm>> = {
   error?: string;

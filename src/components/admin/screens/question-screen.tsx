@@ -8,9 +8,10 @@ import { questionApi, questionCategoryApi } from '@/api';
 import type { Question, QuestionInput } from '@/api/types';
 import { adminPages } from '@/constants/links';
 import { QueryKeys } from '@/enums/query-keys';
+import { ErrorText } from '@/form/error-text';
 import { Form } from '@/form/form';
 import { Input } from '@/form/input';
-import { ErrorText } from '@/form/input/input.styled';
+import { Textarea } from '@/form/textarea';
 import { isItIdFromUrl } from '@/helpers/is-it-id-from-url';
 import { useMessage } from '@/hooks/use-message';
 import { questionSchema } from '@/zod-schemas/question.schema';
@@ -32,6 +33,7 @@ export const QuestionScreen = () => {
     defaultValues: {
       categoryId: cachedQuestion?.category.id,
       question: cachedQuestion?.question,
+      helpDescription: cachedQuestion?.helpDescription ?? undefined,
     },
   });
 
@@ -44,6 +46,7 @@ export const QuestionScreen = () => {
     onSuccess: (data) => {
       setValue('question', data.question);
       setValue('categoryId', data.category.id);
+      setValue('helpDescription', data.helpDescription ?? undefined);
     },
   });
 
@@ -61,6 +64,7 @@ export const QuestionScreen = () => {
       onSuccess: () => {
         success('Question successfully updated');
         queryClient.refetchQueries([QueryKeys.QUESTIONS]);
+        queryClient.refetchQueries([QueryKeys.QUESTION, questionId]);
       },
     },
   );
@@ -84,12 +88,28 @@ export const QuestionScreen = () => {
   };
 
   return (
-    <Form onSubmit={handleSubmitHook(handleSubmit)}>
+    <Form
+      onSubmit={handleSubmitHook((data) => {
+        console.log(data);
+        handleSubmit(data);
+      })}
+    >
       <Controller
         name="question"
         control={control}
         render={({ field }) => (
           <Input error={errors.question?.message} field={field} placeholder="Question name" />
+        )}
+      />
+      <Controller
+        name="helpDescription"
+        control={control}
+        render={({ field }) => (
+          <Textarea
+            error={errors.helpDescription?.message}
+            field={field}
+            placeholder="Question help text"
+          />
         )}
       />
       <Controller
