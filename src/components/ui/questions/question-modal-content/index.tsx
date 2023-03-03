@@ -1,5 +1,7 @@
 import { Radio, Typography } from 'antd';
 
+import { Title } from '@/ui/title';
+
 import { TextWrapper } from './question-modal-content.styled';
 
 import type { RadioChangeEvent } from 'antd';
@@ -8,10 +10,15 @@ const marks = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
 type QuestionModalContentProps = React.FC<{
   mark: number | null;
+  helpDescription: string | null;
   onChange: (e: RadioChangeEvent) => void;
 }>;
 
-export const QuestionModalContent: QuestionModalContentProps = ({ mark, onChange }) => {
+export const QuestionModalContent: QuestionModalContentProps = ({
+  mark,
+  helpDescription,
+  onChange,
+}) => {
   return (
     <>
       <TextWrapper>
@@ -26,6 +33,14 @@ export const QuestionModalContent: QuestionModalContentProps = ({ mark, onChange
           person how it works.
         </Typography.Text>
       </TextWrapper>
+      {helpDescription && (
+        <>
+          <TextWrapper>
+            <Title level={5}>Help questions</Title>
+            <pre>{helpDescription}</pre>
+          </TextWrapper>
+        </>
+      )}
       <Radio.Group onChange={onChange} defaultValue={mark} value={mark}>
         {marks.map((currentMark) => (
           <Radio.Button value={currentMark} key={currentMark}>

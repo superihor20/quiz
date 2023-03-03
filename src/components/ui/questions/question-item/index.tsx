@@ -93,7 +93,11 @@ export const QuestionItem: QuestionItemProps = ({ questionWithMark }) => {
           onClose={handleModalClose}
           onSubmit={handleModalSubmit}
         >
-          <QuestionModalContent mark={mark} onChange={handleMarkChange} />
+          <QuestionModalContent
+            mark={mark}
+            helpDescription={questionWithMark.helpDescription}
+            onChange={handleMarkChange}
+          />
         </Modal>
       </QuestionRightPart>
     </QuestionWrapper>

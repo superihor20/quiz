@@ -15,7 +15,6 @@ export const Textarea = <TForm extends FieldValues, TName extends FieldPath<TFor
   field,
   placeholder,
 }: TextareaProps<TForm, TName>) => {
-  console.log(error);
   return (
     <TextareaWrapper>
       <TextareaStyled status={error ? 'error' : ''} rows={4} placeholder={placeholder} {...field} />

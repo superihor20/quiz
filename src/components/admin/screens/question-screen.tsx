@@ -90,7 +90,6 @@ export const QuestionScreen = () => {
   return (
     <Form
       onSubmit={handleSubmitHook((data) => {
-        console.log(data);
         handleSubmit(data);
       })}
     >
